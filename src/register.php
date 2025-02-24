@@ -66,17 +66,24 @@
                 <div id="card1" class="card">
                     <div class="card-border">
                     		<br>
-                    		<h2>Login</h2>
+                    		<h2>Register</h2>
                     		<br>
-                    		<label for="username">Username: </label>
+                    		<label for="firstname">Firstname: </label>
+								<input type="text" id="firstname">
+								<br><br>
+								<label for="lastname">Lastname: </label>
+								<input type="text" id="lastname">
+								<br><br>
+								<label for="username">Username: </label>
 								<input type="text" id="username">
-								<br><br><br>
+								<br><br>
 								<label for="password">Password: </label>
 								<input type="password" id="password">
-								<br><br><br>
+								<br><br>
+								<label for="repeatPassword">Repeat Password: </label>
+								<input type="password" id="repeatPassword">
+								<br><br><br><br>
 								<input type="button" value="Submit">
-								<br><br><br><br><br><br><br><br>
-								<p>Don't Have A Login? <a href="register.php">Register</a> Here!</p>
 
                     </div>
                 </div>
