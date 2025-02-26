@@ -90,3 +90,8 @@ body{
     background-color: white;
     text-decoration: none;
 }
+
+.removeStyle{
+	color:darkgray;
+    text-decoration: none;
+}
