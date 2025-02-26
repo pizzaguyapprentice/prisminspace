@@ -5,7 +5,8 @@
         <title>Your Basket - prisminspace</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="realstyles.css">
+        <link rel ="stylesheet" href="../navbar.css">
+        <link rel="stylesheet" href="../main.css">
         <link rel="stylesheet" href="basket.css">
     </head>
 
@@ -36,11 +37,11 @@
 
             <div id="user-welcome" class="navbar-item">
                 <div class="user-item">Welcome, [USERNAME]!</div>
-                <div class="user-item"><img src="shoppingcart.svg" alt="shopping basket icon"></div>
+                <div class="user-item"><img src="../img/shoppingcart.svg" alt="shopping basket icon"></div>
             </div>
 
             <div id="user-icon" class="navbar-item">
-                <a href="login.php"><img src="usericon.svg" alt="user login icon"></a>
+                <a href="login.php"><img src="../img/usericon.svg" alt="user login icon"></a>
             </div>
         </div>
 
@@ -64,7 +65,7 @@
                 </div>
 
                 <div class="basket-item">
-                    <img src="placeholderlogo.svg" alt="Product 2">
+                    <img src="../img/placeholderlogo.svg" alt="Product 2">
                     <div class="item-details">
                         <h3>Product Name 2</h3>
                         <p>Brief product description goes here</p>

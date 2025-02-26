@@ -6,9 +6,8 @@
         <title>prisminspace</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel ="stylesheet" href="realstyles.css">
-        <link rel="stylesheet" href="login.css">
-        <!-- <link rel="stylesheet" href="./output.css"> -->
+        <link rel ="stylesheet" href="../navbar.css">
+        <link rel ="stylesheet" href="../main.css">
     </head>
 
     <body>
@@ -17,7 +16,7 @@
         <div class="navbar">
             <!-- navbar contains the entirety of the items below -->
             <div id="logo-small" class="navbar-item">
-                <img src="placeholderlogo.svg" class="" alt="small logo prisminspace">
+                <img src="../img/placeholderlogo.svg" class="" alt="small logo prisminspace">
             </div>
 
             <!-- menubar, will be responsive based on viewport -->
@@ -47,46 +46,56 @@
             if logged in, will forward the user to their shopping basket
             -->
             <div id="user-welcome" class="navbar-item">
+            <!-- Contains the username of user if logged in,
+             otherwise prompts user to log in-->
                 <div class="user-item">Welcome, [USERNAME]!</div>
-                <div class="user-item"><img src="shoppingcart.svg" alt="shopping basket icon"></div>
+                <div class="user-item"><img src="../img/shoppingcart.svg" alt="shopping basket icon"></div>
                 
             </div>
+
+            <!-- Contains the icon of user if logged in,
+             otherwise prompts user to log in-->
 
             <div id="user-icon" class="navbar-item">
-                <a href="login.php"><img src="usericon.svg" alt="user login icon"></a>
+                <a href="/login/login.php"><img src="../img/usericon.svg" alt="user login icon"></a>
             </div>
+
         </div>
 
+        <!-- Contains main body of content-->
         <div class="main">
-            <div class="empty">
 
-            </div>
-            <div class="inputholder">
+            <!-- Is the background of where cards are situated-->
+            <div class="cardholder">
                 
+                <!-- Singular Card Container that holds-->
                 <div id="card1" class="card">
                     <div class="card-border">
-                    		<br>
-                    		<h2>Register</h2>
-                    		<br>
-                    		<label for="firstname">Firstname: </label>
-								<input type="text" id="firstname">
-								<br><br>
-								<label for="lastname">Lastname: </label>
-								<input type="text" id="lastname">
-								<br><br>
-								<label for="username">Username: </label>
-								<input type="text" id="username">
-								<br><br>
-								<label for="password">Password: </label>
-								<input type="password" id="password">
-								<br><br>
-								<label for="repeatPassword">Repeat Password: </label>
-								<input type="password" id="repeatPassword">
-								<br><br><br><br>
-								<input type="button" value="Submit">
-
+                        <img src="../img/placeholderlogo.svg" alt="shopping item">
+                        <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque arcu dolor, ultrices ut tellus in, tincidunt imperdiet elit. Donec at facilisis elit. Phasellus a tortor justo. Pellentesque eleifend in nisi quis pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut eget aliquam nibh. Fusce et pellentesque tellus. Phasellus orci arcu, volutpat vulputate pharetra id, pellentesque sit amet risus. Phasellus vitae orci et massa accumsan convallis a eget nisi. Nam semper orci vel sagittis convallis. Phasellus metus arcu, gravida eget vehicula id, pulvinar et libero. Vivamus tempor purus et neque tempus egestas. Vestibulum congue varius sagittis.</span>
                     </div>
                 </div>
+
+                <div id="card2" class="card">
+
+                </div>
+
+                <div id="card3" class="card">
+
+                </div>
+
+                <div id="card4" class="card">
+
+                </div>
+
+                <div id="card5" class="card">
+
+                </div>
+
+                <div id="card6" class="card">
+
+                </div>
+
             </div>
 
         </div>

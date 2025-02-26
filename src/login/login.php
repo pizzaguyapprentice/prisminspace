@@ -6,7 +6,9 @@
         <title>prisminspace</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel ="stylesheet" href="realstyles.css">
+        <link rel ="stylesheet" href="../navbar.css">
+        <link rel ="stylesheet" href="../main.css">
+        <link rel="stylesheet" href="login.css">
         <!-- <link rel="stylesheet" href="./output.css"> -->
     </head>
 
@@ -16,7 +18,7 @@
         <div class="navbar">
             <!-- navbar contains the entirety of the items below -->
             <div id="logo-small" class="navbar-item">
-                <img src="placeholderlogo.svg" class="" alt="small logo prisminspace">
+                <img src="../img/placeholderlogo.svg" class="" alt="small logo prisminspace">
             </div>
 
             <!-- menubar, will be responsive based on viewport -->
@@ -47,12 +49,12 @@
             -->
             <div id="user-welcome" class="navbar-item">
                 <div class="user-item">Welcome, [USERNAME]!</div>
-                <div class="user-item"><img src="shoppingcart.svg" alt="shopping basket icon"></div>
+                <div class="user-item"><img src="../img/shoppingcart.svg" alt="shopping basket icon"></div>
                 
             </div>
 
             <div id="user-icon" class="navbar-item">
-                <a href="login.php"><img src="usericon.svg" alt="user login icon"></a>
+                <a href="/login/login.php"><img src="../img/usericon.svg" alt="user login icon"></a>
             </div>
         </div>
 
@@ -60,35 +62,25 @@
             <div class="empty">
 
             </div>
-            <div class="cardholder">
+            <div class="inputholder">
                 
                 <div id="card1" class="card">
                     <div class="card-border">
-                        <img src="placeholderlogo.svg" alt="shopping item">
-                        <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque arcu dolor, ultrices ut tellus in, tincidunt imperdiet elit. Donec at facilisis elit. Phasellus a tortor justo. Pellentesque eleifend in nisi quis pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut eget aliquam nibh. Fusce et pellentesque tellus. Phasellus orci arcu, volutpat vulputate pharetra id, pellentesque sit amet risus. Phasellus vitae orci et massa accumsan convallis a eget nisi. Nam semper orci vel sagittis convallis. Phasellus metus arcu, gravida eget vehicula id, pulvinar et libero. Vivamus tempor purus et neque tempus egestas. Vestibulum congue varius sagittis.</span>
+                    		<br>
+                    		<h2>Login</h2>
+                    		<br>
+                    		<label for="username">Username: </label>
+								<input type="text" id="username">
+								<br><br><br>
+								<label for="password">Password: </label>
+								<input type="password" id="password">
+								<br><br><br>
+								<input type="button" value="Submit">
+								<br><br><br><br><br><br><br><br>
+								<p>Don't Have A Login? <a href="/register/register.php">Register</a> Here!</p>
+
                     </div>
                 </div>
-
-                <div id="card2" class="card">
-
-                </div>
-
-                <div id="card3" class="card">
-
-                </div>
-
-                <div id="card4" class="card">
-
-                </div>
-
-                <div id="card5" class="card">
-
-                </div>
-
-                <div id="card6" class="card">
-
-                </div>
-
             </div>
 
         </div>
