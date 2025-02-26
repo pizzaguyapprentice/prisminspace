@@ -6,9 +6,7 @@
         <title>prisminspace</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel ="stylesheet" href="../navbar.css">
-        <link rel ="stylesheet" href="../main.css">
-        <link rel="stylesheet" href="login.css">
+        <link rel ="stylesheet" href="realstyles.css">
         <!-- <link rel="stylesheet" href="./output.css"> -->
     </head>
 
@@ -18,7 +16,7 @@
         <div class="navbar">
             <!-- navbar contains the entirety of the items below -->
             <div id="logo-small" class="navbar-item">
-                <img src="../img/placeholderlogo.svg" class="" alt="small logo prisminspace">
+                <img src="placeholderlogo.svg" class="" alt="small logo prisminspace">
             </div>
 
             <!-- menubar, will be responsive based on viewport -->
@@ -39,7 +37,7 @@
             </div>
             <!-- has a scalable image of the main logo -->
             <div id="logo-big" class="navbar-item">
-                <a href="../index/index.php" ><h1>PRISMINSPACE</h1></a>
+                <h1>PRISMINSPACE</h1>
             </div>
 
             <!--
@@ -49,12 +47,12 @@
             -->
             <div id="user-welcome" class="navbar-item">
                 <div class="user-item">Welcome, [USERNAME]!</div>
-                <div class="user-item"><a href="../basket/basket.php" ><img src="../img/shoppingcart.svg" alt="shopping basket icon"></a></div>
+                <div class="user-item"><img src="shoppingcart.svg" alt="shopping basket icon"></div>
                 
             </div>
 
             <div id="user-icon" class="navbar-item">
-                <a href="/login/login.php"><img src="../img/usericon.svg" alt="user login icon"></a>
+                <a href="login.php"><img src="usericon.svg" alt="user login icon"></a>
             </div>
         </div>
 
@@ -77,7 +75,7 @@
 								<br><br><br>
 								<input type="button" value="Submit">
 								<br><br><br><br><br><br><br><br>
-								<p>Don't Have A Login? <a href="/register/register.php">Register</a> Here!</p>
+								<p>Don't Have A Login? <a href="register.php">Register</a> Here!</p>
 
                     </div>
                 </div>

@@ -39,7 +39,7 @@
             </div>
             <!-- has a scalable image of the main logo -->
             <div id="logo-big" class="navbar-item">
-                <h1>PRISMINSPACE</h1>
+                <a href="../index/index.php" ><h1>PRISMINSPACE</h1></a>
             </div>
 
             <!--
@@ -49,7 +49,7 @@
             -->
             <div id="user-welcome" class="navbar-item">
                 <div class="user-item">Welcome, [USERNAME]!</div>
-                <div class="user-item"><img src="../img/shoppingcart.svg" alt="shopping basket icon"></div>
+                <div class="user-item"><a href="../basket/basket.php"><img src="../img/shoppingcart.svg" alt="shopping basket icon"></a></div>
                 
             </div>
 

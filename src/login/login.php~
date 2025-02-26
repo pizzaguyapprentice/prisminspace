@@ -39,7 +39,7 @@
             </div>
             <!-- has a scalable image of the main logo -->
             <div id="logo-big" class="navbar-item">
-                <a href="../index/index.php" ><h1>PRISMINSPACE</h1></a>
+                <h1>PRISMINSPACE</h1>
             </div>
 
             <!--

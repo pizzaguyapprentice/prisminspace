@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel ="stylesheet" href="../navbar.css">
         <link rel ="stylesheet" href="../main.css">
-        <link rel="stylesheet" href="login.css">
+        <link rel="stylesheet" href="register.css">
         <!-- <link rel="stylesheet" href="./output.css"> -->
     </head>
 
@@ -49,7 +49,7 @@
             -->
             <div id="user-welcome" class="navbar-item">
                 <div class="user-item">Welcome, [USERNAME]!</div>
-                <div class="user-item"><a href="../basket/basket.php" ><img src="../img/shoppingcart.svg" alt="shopping basket icon"></a></div>
+                <div class="user-item"><img src="../img/shoppingcart.svg" alt="shopping basket icon"></div>
                 
             </div>
 
@@ -67,17 +67,24 @@
                 <div id="card1" class="card">
                     <div class="card-border">
                     		<br>
-                    		<h2>Login</h2>
+                    		<h2>Register</h2>
                     		<br>
-                    		<label for="username">Username: </label>
+                    		<label for="firstname">Firstname: </label>
+								<input type="text" id="firstname">
+								<br><br>
+								<label for="lastname">Lastname: </label>
+								<input type="text" id="lastname">
+								<br><br>
+								<label for="username">Username: </label>
 								<input type="text" id="username">
-								<br><br><br>
+								<br><br>
 								<label for="password">Password: </label>
 								<input type="password" id="password">
-								<br><br><br>
+								<br><br>
+								<label for="repeatPassword">Repeat Password: </label>
+								<input type="password" id="repeatPassword">
+								<br><br><br><br>
 								<input type="button" value="Submit">
-								<br><br><br><br><br><br><br><br>
-								<p>Don't Have A Login? <a href="/register/register.php">Register</a> Here!</p>
 
                     </div>
                 </div>
