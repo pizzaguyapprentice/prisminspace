@@ -6,58 +6,15 @@
         <title>prisminspace</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel ="stylesheet" href="../navbar.css">
         <link rel ="stylesheet" href="../main.css">
         <link rel="stylesheet" href="register.css">
         <!-- <link rel="stylesheet" href="./output.css"> -->
     </head>
 
     <body>
-
-        <!-- navbar is sticky -->
-        <div class="navbar">
-            <!-- navbar contains the entirety of the items below -->
-            <div id="logo-small" class="navbar-item">
-                <img src="../img/placeholderlogo.svg" class="" alt="small logo prisminspace">
-            </div>
-
-            <!-- menubar, will be responsive based on viewport -->
-            <div id="menu-bar" class="navbar-item">
-                <div class="menu-item">
-                    <input type="text" placeholder="Search here...">
-                </div>
-            <!-- menubar, will be responsive based on viewport -->
-                <div class="menu-item">
-                    <a href="#">Products</a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">About</a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">Contact</a>
-                </div>
-            </div>
-            <!-- has a scalable image of the main logo -->
-            <div id="logo-big" class="navbar-item">
-                <a href="../index/index.php" ><h1>PRISMINSPACE</h1></a>
-            </div>
-
-            <!--
-            will check whether the user is currently logged in
-            will be replaced by a "log in/register prompt" if not,
-            if logged in, will forward the user to their shopping basket
-            -->
-            <div id="user-welcome" class="navbar-item">
-                <div class="user-item">Welcome, [USERNAME]!</div>
-                <div class="user-item"><a href="../basket/basket.php"><img src="../img/shoppingcart.svg" alt="shopping basket icon"></a></div>
-                
-            </div>
-
-            <div id="user-icon" class="navbar-item">
-                <a href="/login/login.php"><img src="../img/usericon.svg" alt="user login icon"></a>
-            </div>
-        </div>
-
+		<?php
+			include "../navbar/navbar.php";		
+		?>
         <div class="main">
             <div class="empty">
 
@@ -66,26 +23,27 @@
                 
                 <div id="card1" class="card">
                     <div class="card-border">
-                    		<br>
-                    		<h2>Register</h2>
-                    		<br>
-                    		<label for="firstname">Firstname: </label>
-								<input type="text" id="firstname">
-								<br><br>
-								<label for="lastname">Lastname: </label>
-								<input type="text" id="lastname">
-								<br><br>
-								<label for="username">Username: </label>
-								<input type="text" id="username">
-								<br><br>
-								<label for="password">Password: </label>
-								<input type="password" id="password">
-								<br><br>
-								<label for="repeatPassword">Repeat Password: </label>
-								<input type="password" id="repeatPassword">
-								<br><br><br><br>
-								<input type="button" value="Submit">
-
+                    		<form action="../registered/registered.php" method="POST">
+                    			<br>
+                    			<h2>Register</h2>
+                    			<br>
+                    			<label for="firstname">Firstname: </label>
+									<input type="text" id="firstname">
+									<br><br>
+									<label for="lastname">Lastname: </label>
+									<input type="text" id="lastname">
+									<br><br>
+									<label for="username">Username: </label>
+									<input type="text" id="username">
+									<br><br>
+									<label for="password">Password: </label>
+									<input type="password" id="password">
+									<br><br>
+									<label for="repeatPassword">Repeat Password: </label>
+									<input type="password" id="repeatPassword">
+									<br><br><br><br>
+									<input type="submit" value="Submit">
+                    		</form>
                     </div>
                 </div>
             </div>
