@@ -1,4 +1,5 @@
 == Remember to: ==
+
 0) Have both of your ssh-keys in your .ssh directory
 1) Run your Apache2 server (make sure the httpd.conf has the directory/document root put to wherever you have the /prisminspace/src folder)
 2) Put "localhost/index/index.php" into your browser
