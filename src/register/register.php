@@ -15,54 +15,52 @@
 		<?php
 			include "../navbar/navbar.php";		
 		?>
-        <div class="main">
-            <div class="empty">
+		<div class="main">
+			<div class="empty">
 
-            </div>
-            <div class="inputholder">
+			</div>
+			<div class="inputholder">        
+				<div id="card1" class="card">
+					<div class="card-border">
+						<form action="../registered/registered.php" method="POST">
+							<br>
+							<h2>Register</h2>
+							<br>
+							<label for="firstname">Firstname: </label>
+							<input type="text" id="firstname">
+							<br><br>
+							<label for="lastname">Lastname: </label>
+							<input type="text" id="lastname">
+							<br><br>
+							<label for="username">Username: </label>
+							<input type="text" id="username">
+							<br><br>
+							<label for="password">Password: </label>
+							<input type="password" id="password">
+							<br><br>
+							<label for="repeatPassword">Repeat Password: </label>
+							<input type="password" id="repeatPassword">
+							<br><br><br><br>
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="copyright">
+
+			</div>
+			<div class="">
+    
+			</div>
+			<div class="">
                 
-                <div id="card1" class="card">
-                    <div class="card-border">
-                    		<form action="../registered/registered.php" method="POST">
-                    			<br>
-                    			<h2>Register</h2>
-                    			<br>
-                    			<label for="firstname">Firstname: </label>
-									<input type="text" id="firstname">
-									<br><br>
-									<label for="lastname">Lastname: </label>
-									<input type="text" id="lastname">
-									<br><br>
-									<label for="username">Username: </label>
-									<input type="text" id="username">
-									<br><br>
-									<label for="password">Password: </label>
-									<input type="password" id="password">
-									<br><br>
-									<label for="repeatPassword">Repeat Password: </label>
-									<input type="password" id="repeatPassword">
-									<br><br><br><br>
-									<input type="submit" value="Submit">
-                    		</form>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="footer">
-            <div class="copyright">
-
-            </div>
-            <div class="">
-                
-            </div>
-            <div class="">
-                
-            </div>
-        </div>
+			</div>
+		</div>
        
-    </body>
+	</body>
 </html>
 
 <?php
