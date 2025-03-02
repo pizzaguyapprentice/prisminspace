@@ -5,45 +5,13 @@
         <title>Your Basket - prisminspace</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel ="stylesheet" href="../navbar.css">
         <link rel="stylesheet" href="../main.css">
         <link rel="stylesheet" href="basket.css">
     </head>
 
-    <body>
-        <div class="navbar">
-            <div id="logo-small" class="navbar-item">
-                <img src="../img/placeholderlogo.svg" alt="small logo prisminspace">
-            </div>
-
-            <div id="menu-bar" class="navbar-item">
-                <div class="menu-item">
-                    <input type="text" placeholder="Search here...">
-                </div>
-                <div class="menu-item">
-                    <a href="#">Products</a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">About</a>
-                </div>
-                <div class="menu-item">
-                    <a href="#">Contact</a>
-                </div>
-            </div>
-
-            <div id="logo-big" class="navbar-item">
-                <a href="../index/index.php" ><h1>PRISMINSPACE</h1></a>
-            </div>
-
-            <div id="user-welcome" class="navbar-item">
-                <div class="user-item">Welcome, [USERNAME]!</div>
-                <div class="user-item"><a href="../basket/basket.php" ><img src="../img/shoppingcart.svg" alt="shopping basket icon"></a></div>
-            </div>
-
-            <div id="user-icon" class="navbar-item">
-                <a href="../login/login.php"><img src="../img/usericon.svg" alt="user login icon"></a>
-            </div>
-        </div>
+    <?php
+		include "../navbar/navbar.php";		
+	?>
 
         <div class="main">
             <div class="cardholder">
