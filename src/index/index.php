@@ -6,14 +6,14 @@
         <title>prisminspace</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel ="stylesheet" href="../navbar.css">
         <link rel ="stylesheet" href="main.css">
     </head>
 
     <body>
         <?php
-            include "../navbar/navbar.php";
+            include("../navbar/navbar.php");
         ?>
+        
 
         <!-- Contains main body of content-->
         <div class="main">

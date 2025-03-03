@@ -1,6 +1,7 @@
+
 <!-- navbar is sticky -->
 <div class="navbar">
-	<link rel ="stylesheet" href="../navbar.css">
+	<link rel ="stylesheet" href="../navbar/navbar.css">
 	<!-- navbar contains the entirety of the items below -->
 	<div id="logo-small" class="navbar-item">
 		<img src="../img/placeholderlogo.svg" class="" alt="small logo prisminspace">
