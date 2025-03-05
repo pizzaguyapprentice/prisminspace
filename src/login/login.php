@@ -25,19 +25,20 @@
                 
                 <div id="card1" class="card">
                     <div class="card-border">
+						<form action="../userPage/userPage.php" method="POST">
                     		<br>
                     		<h2>Login</h2>
                     		<br>
                     		<label for="username">Username: </label>
-								<input type="text" id="username">
-								<br><br><br>
-								<label for="password">Password: </label>
-								<input type="password" id="password">
-								<br><br><br>
-								<input type="button" value="Submit">
-								<br><br><br><br><br><br><br><br>
-								<p>Don't Have A Login? <a href="/register/register.php">Register</a> Here!</p>
-
+							<input type="text" id="username" name="loginUsername" required>
+							<br><br><br>
+							<label for="password">Password: </label>
+							<input type="password" id="password" name="loginPassword" required>
+							<br><br><br>
+							<input type="submit" value="Login">
+						</form>
+						<br><br><br><br><br><br><br><br>
+						<p>Don't Have A Login? <a href="/register/register.php">Register</a> Here!</p>
                     </div>
                 </div>
             </div>
