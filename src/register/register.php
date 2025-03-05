@@ -38,7 +38,7 @@
 							<label for="repeatPassword">Repeat Password: </label>
 							<input type="password" id="repeatPassword">
 							<br><br><br><br>
-							<input type="submit" value="Submit">
+							<input type="submit" value="Create Account">
 						</form>
 					</div>
 				</div>
