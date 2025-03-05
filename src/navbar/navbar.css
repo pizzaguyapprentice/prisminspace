@@ -7,8 +7,6 @@ https://lospec.com/palette-list/look-of-horror
 https://lospec.com/palette-list/caramel-autumn
 https://lospec.com/palette-list/candypop
 
-
-
 */
 @font-face {
 	font-family: metallord;
@@ -59,9 +57,11 @@ body{
 
 }
 #searchbar{
-	width:5vw;
+	margin-right:3vw;
+	width:8vw;
 	border-radius: 10px;
 	border-color: white;
+	border-radius: none;
 }
 .menu-item a{
 	font-family: metallord;

@@ -38,17 +38,11 @@
 
         </div>
 
-        <div class="footer">
-            <div class="copyright">
 
-            </div>
-            <div class="">
-                
-            </div>
-            <div class="">
-                
-            </div>
-        </div>
+
+        <?php
+            include("../footer/footer.php");
+        ?>
        
     </body>
 </html>
