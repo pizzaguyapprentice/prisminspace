@@ -1,0 +1,50 @@
+Structure
+	MVC Using A Front Controller
+	securing DB Credentials
+	DB Connection
+	Seperation Of SQL Queries.
+	Use Of Web Page Templates (Header And Footer)
+
+CRUD
+	Example Of ALL CRUD Functions With PDO (Create, Read, Update, Delete) Connection And Seperation Of SQL Queries
+	Strong Attempt At Shopping Cart Functionality
+
+Output And Formating
+	Appropriate Web Pages And Templates To Input And/Or Display Data (Use Of Tables, Css Iteration, Arrays, Etc.)
+
+Form Validation
+	All User Input Correctly Formatted And Sanitised At The Client & Server Side
+
+Data Storage
+	Use Of DB For ALL Storage, NO JSON
+
+Login Logic
+	Authenticate User Login Data Against Data In A DB
+
+Sessions
+	Use Of Sessions For Login And Sessions Destroy At End Of A Session
+
+Design And Apearance
+	User Can Access More Pages If Logged In.
+	Good Use Of Authentication
+
+Code Quality And Correctness
+	Good Use Of PHP Classes And Functions (Create Your Own Too)
+
+Version Control And Testing
+	Proof Of Version Control And Testing
+
+
+
+Add User Profile Page
+UNIQUE SELLING POINT
+
+Authenticate User Login Data Against Data In A DB
+Use Of Sessions For Login And Sessions Destroy At End Of A Session
+User Can Access More Pages If Logged In.
+All User Input Correctly Formatted And Sanitised At The Client & Server Side
+Appropriate Web Pages And Templates To Input And/Or Display Data
+Strong Attempt At Shopping Cart Functionality
+Securing DB Credentials
+MVC Using A Front Controller
+Use Of Web Page Templates (Header And Footer)
