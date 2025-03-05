@@ -10,10 +10,32 @@
         <link rel="stylesheet" href="registered.css">
         <!-- <link rel="stylesheet" href="./output.css"> -->
     </head>
+	<?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "123";
+		$dbname = "prisminspacedb";
+
+		try {
+			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$userfirstname = $_POST["firstname"];
+			$userusername = $_POST["username"];
+			$userpassword = $_POST["password"];
+			$stmt = $conn->prepare("INSERT INTO users (firstname, username, password) VALUES ('$userfirstname', '$userusername', '$userpassword')");
+			$stmt->execute();
+		  } catch(PDOException $e) {
+			echo "Error: " . $e->getMessage();
+		  }
+		  $conn = null;
+	?>
 	<body>
 		<?php
-			include "../navbar/navbar.php";		
+			include "../navbar/navbar.php";	
 		?>
+		<br>
+		<p>Welcome <?php echo $_POST["firstname"]; ?>, You Have Registered.<br>
+		Now Navigate To The <a href="../login/login.php">Login</a> Page To Login To The Website</p>
 	</body>
 
 </html>
