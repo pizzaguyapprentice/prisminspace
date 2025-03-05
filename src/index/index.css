@@ -2,21 +2,21 @@
 
 .main{
     display:flex;
-    background-color: white;
-    margin-right:6vw;
-    margin-left:6vw;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-image: url(../img/upbackground.jpeg);
+    
+
+    background-color:  #302d6a  ;
 
 }
 .main-background{   
 
     /*background-image: url(../img/upbackground.jpeg);*/
-    margin-right:15vw;
-    margin-left:15vw;
+    margin-right:7vw;
+    margin-left:7vw;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image: url(../img/wizards.jpg);
 
 }
 
@@ -27,7 +27,7 @@
     margin:auto;
     justify-content: center;
     height:fit-content;
-    background-color: #4c7c94;
+  /*  background-color: rgb(48, 45, 106,0.8)  ;*/
 }
 iframe{
     margin-top:1vh;
@@ -63,12 +63,9 @@ iframe{
 /* BELOW IS FOR THE FOOTER */
 
 .footer{
-    display:flex;
-    background-color: #ee8695;
-    height:10vh;
-    align-items: center;
-    background-image:url("");
-    border-radius: 3vw;
+	display:flex;
+	background-color: #d32836;
+	height:10vh;
+	align-items: center;
 }
-
 

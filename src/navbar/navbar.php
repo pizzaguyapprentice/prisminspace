@@ -9,22 +9,22 @@
 	<!-- menubar, will be responsive based on viewport -->
 	<div id="menu-bar" class="navbar-item">
 	
-	<input class="menu-item" id="searchbar" type="text" placeholder="Search here..." cols="5">
+		<input class="menu-item" id="searchbar" type="text" placeholder="Search here..." cols="5">
 
-	<!-- menubar, will be responsive based on viewport -->
-	<div class="menu-item">
-		<a href="../products/products.php">Products</a>
-	</div>
-	<div class="menu-item">
-		<a href="#">About</a>
-	</div>
-	<div class="menu-item">
-		<a href="#">Contact</a>
-	</div>
-	</div>
-	<!-- has a scalable image of the main logo -->
-	<div id="logo-big" class="navbar-item">
-		<a href="../index/index.php"><h1>PRISMINSPACE</h1></a>
+		<!-- menubar, will be responsive based on viewport -->
+		<div class="menu-item">
+			<a href="../products/products.php">Products</a>
+		</div>
+		<div class="menu-item">
+			<a href="#">About</a>
+		</div>
+		<div class="menu-item">
+			<a href="#">Contact</a>
+		</div>
+		</div>
+		<!-- has a scalable image of the main logo -->
+		<div id="logo-big" class="navbar-item">
+			<a href="../index/index.php"><h1>PRISMINSPACE</h1></a>
 	</div>
 	<!--
 	will check whether the user is currently logged in
@@ -34,7 +34,7 @@
 	<div id="user-welcome" class="navbar-item">
 		<!-- Contains the username of user if logged in,
 		otherwise prompts user to log in-->
-		<div class="user-item">Welcome, [USERNAME]!</div>
+		<div class="user-item"><p>Welcome, [USERNAME]!</p></div>
 		<div class="user-item"><a href="../basket/basket.php"><img src="../img/shoppingcart.svg" alt="shopping basket icon"></a></div>
 	</div>
 	<!-- Contains the icon of user if logged in,

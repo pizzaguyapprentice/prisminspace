@@ -2,7 +2,14 @@
 	margin:0;
 	padding:0;
 }
+/*
+https://lospec.com/palette-list/look-of-horror
+https://lospec.com/palette-list/caramel-autumn
+https://lospec.com/palette-list/candypop
 
+
+
+*/
 @font-face {
 	font-family: metallord;
 	src: url(../fonts/metallord.otf);
@@ -10,36 +17,40 @@
 /* BELOW IS FOR THE NAVBAR */
 
 body{
-	background-color: #4c7c94;
+	background-color: #ffffff;
 }
 
 .navbar{
 	display:flex;
-	background-color: #ee8695;
+	background-color: #d32836;
 	height:10vh;
 	align-items: center;
-	background-image:url("");
-	border-radius: 3vw;
-	box-shadow: 5px 5px 5px rgb(0, 0, 0);
+
 }
 
 .navbar-item{
-	display:inline-block;
-	vertical-align: middle;
+	display:flex;
+	flex-direction: row;
 	color:white;
+	align-items: center;
 }
 
 #menu-bar ,#logo-big ,#user-welcome{
 	margin:auto;
 }
+
 .menu-item{
-	vertical-align: middle;
-	display:inline-block;
+	display:flex;
 	font-size: 1vw;
 	margin:0.3vw;
-}
 
-.menu-item {
+}
+#menu-bar{
+	display:flex;
+	justify-content: flex-start;
+	margin-left:2vw;
+}
+.menu-item #searchbar{
 	margin:0;
 	min-height: 0.5vw;
 	min-width:3vw;
@@ -79,12 +90,20 @@ body{
 	width:4vw;
 }
 
-#user-welcome .user-item{
-	vertical-align: middle;
-	display:inline-block;
-	font-size: 1vw;
+#user-welcome{
+	display:flex;
+	margin:1vw;
 }
 
+#user-welcome .user-item{
+	vertical-align: middle;
+	display:flex;
+	font-size: 1vw;
+
+}
+.user-item p{
+	align-items: center;
+}
 #user-welcome img{
 	max-width: 64px;
 	min-width: 24px;
@@ -94,12 +113,15 @@ body{
 
 /* Scaling PRISMINSPACE logo */
 #logo-big{
-	background-color: white;
+	/* background-color: white; */
+	
+	position: absolute;
+	margin:41vw;
 }
 
 #logo-big a{
 	font-family:metallord;
 	font-size: 1.4vw;
-	color:#4a7a96;
+	color:#302d6a;
 	text-decoration: none;
 }
