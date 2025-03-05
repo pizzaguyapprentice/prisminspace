@@ -3,6 +3,10 @@
 	padding:0;
 }
 
+@font-face {
+	font-family: metallord;
+	src: url(../fonts/metallord.otf);
+  }
 /* BELOW IS FOR THE NAVBAR */
 
 body{
@@ -32,19 +36,24 @@ body{
 	vertical-align: middle;
 	display:inline-block;
 	font-size: 1vw;
-	margin:0.4vw;
+	margin:0.3vw;
 }
 
-.menu-item input{
+.menu-item {
 	margin:0;
 	min-height: 0.5vw;
 	min-width:3vw;
 	height:1.5vw;
+	width:0vw;
+
+}
+#searchbar{
 	width:5vw;
 	border-radius: 10px;
 	border-color: white;
 }
 .menu-item a{
+	font-family: metallord;
 	text-decoration: none;
 	color:white;
 }
@@ -60,7 +69,7 @@ body{
 }
 /* Navbar image icons scaling*/
 #logo-small img{
-	max-width: 72px;
+	max-width: 86px;
 	min-width: 32px;
 	width:4vw;
 }
@@ -89,6 +98,7 @@ body{
 }
 
 #logo-big a{
+	font-family:metallord;
 	font-size: 1.4vw;
 	color:#4a7a96;
 	text-decoration: none;

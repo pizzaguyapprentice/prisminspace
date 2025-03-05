@@ -4,13 +4,13 @@
 	<link rel ="stylesheet" href="../navbar/navbar.css">
 	<!-- navbar contains the entirety of the items below -->
 	<div id="logo-small" class="navbar-item">
-		<img src="../img/placeholderlogo.svg" class="" alt="small logo prisminspace">
+		<img src="../img/logo.png" class="" alt="small logo prisminspace">
 	</div>
 	<!-- menubar, will be responsive based on viewport -->
 	<div id="menu-bar" class="navbar-item">
-	<div class="menu-item">
-		<input type="text" placeholder="Search here...">
-	</div>
+	
+	<input class="menu-item" id="searchbar" type="text" placeholder="Search here..." cols="5">
+
 	<!-- menubar, will be responsive based on viewport -->
 	<div class="menu-item">
 		<a href="../products/products.php">Products</a>
@@ -24,7 +24,7 @@
 	</div>
 	<!-- has a scalable image of the main logo -->
 	<div id="logo-big" class="navbar-item">
-		<a href="../index/index.php" class="removeStyle"><h1>PRISMINSPACE</h1></a>
+		<a href="../index/index.php"><h1>PRISMINSPACE</h1></a>
 	</div>
 	<!--
 	will check whether the user is currently logged in
