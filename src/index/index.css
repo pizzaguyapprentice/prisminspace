@@ -3,27 +3,31 @@
 .main{
     display:flex;
     background-color: white;
-    margin-right:8vw;
-    margin-left:8vw;
-
-}
-.main-background{
+    margin-right:6vw;
+    margin-left:6vw;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size:contain;
+    background-size:cover;
     background-image: url(../img/upbackground.jpeg);
-    margin-right:8vw;
-    margin-left:8vw;
+
+}
+.main-background{   
+
+    /*background-image: url(../img/upbackground.jpeg);*/
+    margin-right:15vw;
+    margin-left:15vw;
+
 }
 
 .cardholder{
     display:flex;
-    margin:50px;
+    /*margin:50px;*/
     flex-wrap: wrap;
     margin:auto;
     justify-content: center;
     height:fit-content;
+    background-color: #4c7c94;
 }
 iframe{
     margin-top:1vh;
@@ -36,29 +40,31 @@ iframe{
 }
 .paragraph{
     font-size:2.5rem;
-    color:white;
-    background-color: rgb(128, 128, 128, 0.5);
+    background-color: 236, 132, 148;
     justify-content: center;
+    color:#4c7c94;
 }
 iframe{
     pointer-events: none ;
 }
-.p-title{
+.paragraph .p-title{
+    color:white;
     text-align: center;
     margin-top: 2vh;
     margin-bottom:2vh;
 }
-.p-text{
-    text-shadow: 5rem 5rem 5rem gray;
-    margin-left:10vw;
-    margin-right:10vw;
+.paragraph .p-text{
+    margin-left:8vw;
+    margin-right:8vw;
+    color:white;
+    margin-bottom: 5vh;
 }
 
 /* BELOW IS FOR THE FOOTER */
 
 .footer{
     display:flex;
-    background-color: darkgray;
+    background-color: #ee8695;
     height:10vh;
     align-items: center;
     background-image:url("");
