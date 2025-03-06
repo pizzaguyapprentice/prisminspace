@@ -25,6 +25,34 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `prisminspacedb` /*!40100 DEFAULT CHARA
 USE `prisminspacedb`;
 
 --
+-- Table structure for table `basket`
+--
+
+DROP TABLE IF EXISTS `basket`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `basket` (
+  `basketID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `productID` int(11) NOT NULL,
+  PRIMARY KEY (`basketID`),
+  KEY `fk_basket_1_idx` (`userID`),
+  KEY `fk_basket_2_idx` (`productID`),
+  CONSTRAINT `fk_basket_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_basket_2` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `basket`
+--
+
+LOCK TABLES `basket` WRITE;
+/*!40000 ALTER TABLE `basket` DISABLE KEYS */;
+/*!40000 ALTER TABLE `basket` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `orders`
 --
 
@@ -32,13 +60,14 @@ DROP TABLE IF EXISTS `orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orders` (
-  `orderID` int(11) NOT NULL,
+  `orderID` int(11) NOT NULL AUTO_INCREMENT,
   `orderDate` datetime DEFAULT NULL,
   `userID` int(11) DEFAULT NULL,
   `productID` int(11) DEFAULT NULL,
   PRIMARY KEY (`orderID`),
   KEY `fk_orders_1_idx` (`userID`),
   KEY `fk_orders_2_idx` (`productID`),
+  KEY `productID` (`productID`),
   CONSTRAINT `fk_orders_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_orders_2` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -61,7 +90,7 @@ DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
-  `productID` int(11) NOT NULL,
+  `productID` int(11) NOT NULL AUTO_INCREMENT,
   `productName` varchar(45) DEFAULT NULL,
   `productPrice` int(11) DEFAULT NULL,
   `productAmount` int(11) DEFAULT NULL,
@@ -76,8 +105,6 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES
-(0,'Test Item',100,2,'');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,11 +116,12 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `userID` int(11) NOT NULL,
-  `username` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
+  `userID` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(45) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,6 +130,12 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES
+(1,'test','test','test'),
+(2,'1','2','3'),
+(12,'','',''),
+(13,'','',''),
+(14,'','','');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -114,4 +148,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2025-03-02 21:27:59
+-- Dump completed on 2025-03-06 11:41:51
