@@ -21,7 +21,7 @@
 }
 .videoholder{
     width:50vw; 
-    height:20vh; 
+    height:25vh; 
     display:flex; 
     margin:auto;
     margin-top:1vh;
@@ -33,6 +33,7 @@
 .p-title{
     z-index: 2; 
     position:absolute;
+    padding-top:4vh;
 }
 .banner{
     /*transform:scale(1);*/
@@ -64,6 +65,7 @@
     margin-bottom:2vh;
 }
 .paragraph .p-text{
+    margin-top:5vh;
     margin-left:8vw;
     margin-right:8vw;
     color:white;
