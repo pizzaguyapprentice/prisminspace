@@ -38,7 +38,7 @@
 							<input type="submit" value="Login">
 						</form>
 						<br><br><br><br><br><br><br><br>
-						<p>Don't Have A Login? <a href="/register/register.php">Register</a> Here!</p>
+						<p>Don't Have A Login? <a href="../register/register.php">Register</a> Here!</p>
                     </div>
                 </div>
             </div>
