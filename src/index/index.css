@@ -21,13 +21,12 @@
 }
 .videoholder{
     width:50vw; 
-    height:25vh; 
+    height:20vh; 
     display:flex; 
     margin:auto;
-    margin-top:1vh;
+    margin-top:4vh;
     justify-content: center;
     position:relative;
-
 }
 
 .p-title{

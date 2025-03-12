@@ -31,7 +31,7 @@
                 <div class="cardholder">
                     <div class="paragraph">
                         <div class="videoholder">
-                            <h2 class="p-title">Welcome to PRISMINSPACE</h2>
+                            <h2 class="p-title">Welcome to: <span id="small-logo">PRISMINSPACE</span></h2>
                             <video class="banner" type="video/mp4" autoplay muted loop>
                                 <source src="../img/backgroundbanner.mp4" type="video/mp4">
                             </video>
@@ -48,8 +48,6 @@
             </div>
 
         </div>
-
-
 
         <?php
             include("../footer/footer.php");
