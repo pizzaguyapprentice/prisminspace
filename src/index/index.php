@@ -37,8 +37,7 @@
                             </video>
                             
                         </div>
-                        
-                        
+                    
                         <p class="p-text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur metus et massa congue, ut viverra magna venenatis. Nunc congue, tellus vulputate porta eleifend, turpis enim bibendum eros, at molestie nisi felis non lectus. Vestibulum semper sed neque eget mattis. Nulla a auctor quam, vel congue magna. Sed ac nunc et mi placerat vestibulum. Mauris nec malesuada libero. Ut consequat bibendum ante id ultricies. Maecenas consequat lorem sed elit luctus, sit amet vulputate sapien faucibus. Quisque ante velit, efficitur in ante vel, vulputate egestas turpis. Maecenas ut varius lectus. 
                         </p>

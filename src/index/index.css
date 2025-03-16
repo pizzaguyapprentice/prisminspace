@@ -1,4 +1,12 @@
 /* BELOW IS FOR THE MAIN */
+@font-face {
+	font-family: metallord;
+	src: url(../fonts/metallord.otf);
+}
+
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
 
 .main{
     display:flex;
@@ -8,14 +16,11 @@
     pointer-events: none;
 }
 .main-background{   
-
-    /*background-image: url(../img/upbackground.jpeg);*/
     margin-right:7vw;
     margin-left:7vw;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-
     background-size:cover;
     background-image: url(../img/wizards.jpg);
 }
@@ -35,7 +40,6 @@
     padding-top:4vh;
 }
 .banner{
-    /*transform:scale(1);*/
     z-index: 1;
     width:100vw;
     object-fit: cover;
@@ -44,12 +48,10 @@
 }
 .cardholder{
     display:flex;
-    /*margin:50px;*/
     flex-wrap: wrap;
     margin:auto;
     justify-content: center;
     height:fit-content;
-  /*  background-color: rgb(48, 45, 106,0.8)  ;*/
 }
 .paragraph{
     font-size:2.5rem;
@@ -70,5 +72,6 @@
     color:white;
     margin-bottom: 5vh;
 }
-
-/* BELOW IS FOR THE FOOTER */
+#small-logo{
+    font-family: metallord;
+}
