@@ -38,7 +38,7 @@
 
         //default option values
         var options = {
-            animate: true,
+            animate: false,
             patternWidth: 100,
             patternHeight: 100,
             grainOpacity: 0.1,

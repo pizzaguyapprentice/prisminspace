@@ -7,22 +7,31 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel ="stylesheet" href="products.css?v=<?php echo time(); ?>">
+
+		<style> 
+            #grained{
+                pointer-events: none;
+				isolation: isolate;
+            }
+    	</style>
     </head>
 
     <body>
 
-		<!-- Has to be above body for grained to be enabled -->
-		<?php
-            include("../grained-master/settings.php");
-        ?>
         <!-- Navbar enabled-->
         <?php
             include("../navbar/navbar.php");
         ?>
 
+		<!-- Has to be above body for grained to be enabled -->
+		<?php
+            include("../grained-master/settings.php");
+        ?>
+
         <!-- Contains main body of content-->
         <div class="main">
 			<div class="main-background" id="grained">
+
 				<!-- Is the background of where cards are situated-->
 				<div class="cardholder">
 					
@@ -34,55 +43,9 @@
 						</div>
 					</div>
 
-					<?php
-					//echo "<table style='border: solid 1px black;'>";
-						//echo "<tr><th>Id</th><th>Product Name</th><th>Price</th><th>Amount</th></tr>";
-
-
-                
-					 class TableRows extends RecursiveIteratorIterator {
-  						function construct($it) {
-  						  parent::construct($it, self::LEAVES_ONLY);
-  						}
-
-  						function current() {
-  						  return parent::current();
-  						}
-
-  						function beginChildren() {
-   						echo "<div class='card'>";
-   						echo "<div class='card-border'>";
-  						}
-
-  						function endChildren() {
- 						   echo "</div>";
-					  		echo "</div>" . "\n";
-						}
-					  }
-
-					  $servername = "localhost";
-					  $username = "root";
-					  $password = "123";
-					  $dbname = "prisminspacedb";
-
-					  try {
- 					   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
- 					   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
- 					   $stmt = $conn->prepare("SELECT * FROM products");
-						$stmt2 = $conn->prepare("SELECT productName FROM products");
- 					   $stmt->execute();
-
-  					   $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-  					   $result = $stmt2->setFetchMode(PDO::FETCH_ASSOC);
- 					   foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-   					   echo $v;
- 					   }
-					  } catch(PDOException $e) {
-					    echo "Error: " . $e->getMessage();
-					  }
-					  $conn = null;
-					  //echo "</table>";
-                ?>
+					<?php 
+						include("fetchproducts.php");
+					?>
             	</div>
 			</div>
         </div>
@@ -92,6 +55,7 @@
     </body>
 
 	<!-- Has to be below body for grained to be enabled -->
-    <script src="../grained-master/options.js">
+	<script src="../grained-master/options.js">
     </script>
+
 </html>
