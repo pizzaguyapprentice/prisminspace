@@ -1,7 +1,7 @@
 
 <!-- navbar is sticky -->
 <div class="navbar">
-	<link rel ="stylesheet" href="../navbar/navbar.css">
+	<link rel ="stylesheet" href="../navbar/navbar.css?v=<?php echo time();?>">
 	<!-- navbar contains the entirety of the items below -->
 	<div id="logo-small" class="navbar-item">
 		<img src="../img/logo.png" class="" alt="small logo prisminspace">

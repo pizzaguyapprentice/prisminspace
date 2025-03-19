@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbname = 'prisminspacedb';
 $username = 'root';
-$password = '';
+$password = '123';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

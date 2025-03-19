@@ -22,28 +22,7 @@
     background-size:cover;
     background-image: url(../img/wizards.jpg);
 }
-.videoholder{
-    width:50vw; 
-    height:20vh; 
-    display:flex; 
-    margin:auto;
-    margin-top:4vh;
-    justify-content: center;
-    position:relative;
-}
 
-.p-title{
-    z-index: 2; 
-    position:absolute;
-    padding-top:4vh;
-}
-.banner{
-    z-index: 1;
-    width:50vw;
-    object-fit: cover;
-    border-radius: 5vw;
-    bottom:0;
-}
 .cardholder{
     display:flex;
     flex-wrap: wrap;
@@ -73,4 +52,33 @@
 }
 #small-logo{
     font-family:metallord;
+}
+
+.cardholder{
+    display:flex;
+    margin:50px;
+    flex-wrap: wrap;
+    margin:auto;
+    justify-content: center;
+}
+.card{
+    margin:2vw;
+    padding:50px;
+    width:32vw;
+    height:48vh;
+    border:5px solid #A9A9A9;
+    border-radius:5%;
+    background-color: gray;
+}
+.card-border{
+    width:31.5vw;
+    height:47.5vh;
+    border:5px solid #A9A9A9;
+    border-radius:5%;
+    background-color: white;
+}
+.card img{
+    width:10vw;
+    height:fit-content;
+    margin:10px;
 }

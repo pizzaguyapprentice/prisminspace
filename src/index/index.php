@@ -6,22 +6,18 @@
         <title>prisminspace</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- <link rel ="stylesheet" href=" ../index/index.css"> -->
         <link rel="stylesheet" href="index.css?v=<?php echo time(); ?>">
-
-        <style> 
-            #grained{
-                pointer-events: none;
-            }
-        </style>
-
     </head>
-    <script src="../grained-master/grained.js"></script>
+
     <body>
+        <!-- Has to be above body for grained to be enabled -->
+        <?php
+            include("../grained-master/settings.php");
+        ?>
+        <!-- Navbar enabled-->
         <?php
             include("../navbar/navbar.php");
         ?>
-        
 
         <!-- Contains main body of content-->
         <div class="main">
@@ -42,32 +38,18 @@
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur metus et massa congue, ut viverra magna venenatis. Nunc congue, tellus vulputate porta eleifend, turpis enim bibendum eros, at molestie nisi felis non lectus. Vestibulum semper sed neque eget mattis. Nulla a auctor quam, vel congue magna. Sed ac nunc et mi placerat vestibulum. Mauris nec malesuada libero. Ut consequat bibendum ante id ultricies. Maecenas consequat lorem sed elit luctus, sit amet vulputate sapien faucibus. Quisque ante velit, efficitur in ante vel, vulputate egestas turpis. Maecenas ut varius lectus. 
                         </p>
                     </div>
-
                 </div>
             </div>
-
         </div>
 
+        <!-- Footer enabled-->
         <?php
             include("../footer/footer.php");
         ?>
-       
-    </body>
 
-    <script>
-        var options = {
-        "animate": true,
-        "patternWidth": 100,
-        "patternHeight": 100,
-        "grainOpacity": 0.3,
-        "grainDensity": 2,
-        "grainWidth": 1.5,
-        "grainHeight": 1.5
-        };
-        grained('#grained',options);
+    </body>
+    
+    <!-- Has to be below body for grained to be enabled -->
+    <script src="../grained-master/options.js">
     </script>
 </html>
-
-<?php
-    //echo "It just works - Todd Howard does it";
-?>
