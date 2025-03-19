@@ -71,6 +71,7 @@
     border:5px solid #A9A9A9;
     border-radius:5%;
     background-color: gray;
+    display:flex;
 }
 .card-border{
     width:31.5vw;
@@ -78,9 +79,54 @@
     border:5px solid #A9A9A9;
     border-radius:5%;
     background-color: white;
+
+    display:flex;
 }
 .card img{
     width:10vw;
     height:fit-content;
     margin:10px;
 }
+.product-details{
+    width:18vw;
+}
+.card-border .product-image{
+    align-items: center;
+    background-color: #302d6a;
+    margin:auto;
+    align-items: center;
+}
+.card-border .product-details{
+    background-color: #4c7c94;
+    flex-direction: column;
+    display:flex;
+}
+.card-border .product-name{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin:1.5vw;
+}
+.card-border .product-description{
+    font-size: 1.2rem;
+    margin:1.5vw;
+}
+.card-border .product-size{
+    font-size: 1.2rem;
+    margin:1.5vw;
+}
+.card-border .product-price{
+    font-size: 1.2rem;
+    margin:1.5vw;
+}
+.card-border .basket-options{
+    display:flex;
+    flex-direction: row;
+}
+.card-border .addtobasket{
+    margin:auto;
+}
+
+.card-border .isinbasket{
+    margin:auto;
+}
+

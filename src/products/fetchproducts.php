@@ -17,10 +17,44 @@ try {
     while ($row = $stmt->fetch()) {
         echo "<div class='card'>
                 <div class='card-border'>
-                    <p>{$row['productName']}</p>
-                    <p>{$row['productPrice']}</p>
-                    <p>{$row['productAmount']}</p>
-                    <p>{$row['productImage']}</p>
+
+                    <div class='product-image'>
+						<img src='../img/placeholderlogo.svg' alt='shopping item' >
+					</div>
+
+
+                    <div class='product-details'>
+
+                        <div class='product-name'>
+                            <p>{$row['productName']}</p>
+                        </div>
+
+                        <div class='product-description'>
+                            <p>Description: {$row['productDesc']}</p>
+                        </div>
+
+                        <div class='product-size'>
+                            <p>Size: {$row['productSize']}</p>
+                        </div>
+
+                        <div class='product-price'>
+                            <p>Price: {$row['productPrice']}</p>
+                        </div>
+
+                        <div class='basket-options'>
+                            <div class='addtobasket'>
+                                <button>Add To Basket</button>
+                            </div>
+
+                            <div class='isinbasket'>
+                                <button>Remove from basket</button>
+                            </div>
+                        </div>
+                        
+                        
+
+
+                    </div>
                 </div>
               </div>";
     }

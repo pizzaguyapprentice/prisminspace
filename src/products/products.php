@@ -36,13 +36,6 @@
 				<div class="cardholder">
 					
 					<!-- Singular Card Container that holds-->
-					<div id="card1" class="card">
-						<div class="card-border">
-							<img src="../img/placeholderlogo.svg" alt="shopping item">
-							<span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque arcu dolor, ultrices ut tellus in, tincidunt imperdiet elit. Donec at facilisis elit. Phasellus a tortor justo. Pellentesque eleifend in nisi quis pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut eget aliquam nibh. Fusce et pellentesque tellus. Phasellus orci arcu, volutpat vulputate pharetra id, pellentesque sit amet risus. Phasellus vitae orci et massa accumsan convallis a eget nisi. Nam semper orci vel sagittis convallis. Phasellus metus arcu, gravida eget vehicula id, pulvinar et libero. Vivamus tempor purus et neque tempus egestas. Vestibulum congue varius sagittis.</span>
-						</div>
-					</div>
-
 					<?php 
 						include("fetchproducts.php");
 					?>
