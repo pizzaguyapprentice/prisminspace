@@ -52,6 +52,13 @@
 	<!-- Contains the icon of user if logged in,
 	otherwise prompts user to log in-->
 	<div id="user-icon" class="navbar-item">
-		<a href="../login/login.php"><img src="../img/usericon.svg" alt="user login icon"></a>
+		<?php
+			if(($_SESSION['login_username'] ?? "an") == "an"){
+				echo '<a href="../login/login.php"><img src="../img/usericon.svg" alt="user login icon"></a>';
+			}
+			else{
+				echo '<a href="../userPage/userPage.php"><img src="../img/usericon.svg" alt="user login icon"></a>';
+			}
+		?>
 	</div>
 </div>
