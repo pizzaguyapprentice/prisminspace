@@ -34,7 +34,19 @@
 	<div id="user-welcome" class="navbar-item">
 		<!-- Contains the username of user if logged in,
 		otherwise prompts user to log in-->
-		<div class="user-item"><p>Welcome, [USERNAME]!</p></div>
+		<!-- <div class="user-item"><p>Welcome, [USERNAME]!</p></div> -->
+		<?php
+			session_start();
+			//unset($_SESSION['login_username']);
+			if(($_SESSION['login_username'] ?? "an") == "an"){
+				echo "<div class='user-item'><p>Welcome, [USERNAME]!</p></div>";
+			}
+			else{
+				echo "<div class='user-item'><p>Welcome, ";
+				echo $_SESSION['login_username'];
+				echo "!</p></div>";
+			}
+		?>
 		<div class="user-item"><a href="../basket/basket.php"><img src="../img/shoppingcart.svg" alt="shopping basket icon"></a></div>
 	</div>
 	<!-- Contains the icon of user if logged in,

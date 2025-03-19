@@ -1,5 +1,43 @@
 <!DOCTYPE html>
 
+<?php
+			$servername = "localhost";
+			$username = "root";
+			$password = "123";
+			$dbname = "prisminspacedb";
+
+			//$userfirstname = $_POST["firstname"];
+			//$userusername = $_POST["username"];
+			//$userpassword = $_POST["password"];
+
+			if(isset($_POST['username']) && isset($_POST['password']) && $_SERVER["REQUEST_METHOD"] == "POST"){
+				try{
+					$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+					$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+					$stmt = $conn->prepare("SELECT username FROM users WHERE username = :username AND password = :password");
+					$stmt->bindParam(':username', $_POST['username']);
+					$stmt->bindParam(':password', $_POST['password']);
+					$stmt->execute();
+
+					$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+					if($user){
+						echo "Welcome, ".$user['username']." you have logged in!";
+						session_start();
+						$_SESSION['login_username'] = $_POST['username'];
+						header("location: ../index/index.php");
+					}else{
+						echo "This account doesn't exist, or you have given incorrect credentials";
+					}
+
+				} catch (PDOException $e){
+					echo "Connection failed: ". $e->getMessage();
+				}
+				
+			}
+		?>
+
 <html lang="en">
     <head>
         <link rel="icon" href="placeholderlogo.svg">
@@ -25,7 +63,7 @@
                 
                 <div id="card1" class="card">
                     <div class="card-border">
-						<form action="../userPage/userPage.php" method="POST">
+						<form action="" method="POST">
                     		<br>
                     		<h2>Login</h2>
                     		<br>
@@ -45,17 +83,9 @@
 
         </div>
 
-        <div class="footer">
-            <div class="copyright">
-
-            </div>
-            <div class="">
-                
-            </div>
-            <div class="">
-                
-            </div>
-        </div>
+        <?php
+			include "../footer/footer.php";
+		?>
        
     </body>
 </html>
