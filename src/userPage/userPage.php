@@ -27,26 +27,26 @@
 			$dbname = "prisminspacedb";
 
 
-			if(true == false){
+			if(array_key_exists("delete", $_POST)){
 				try{
-				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+					$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+					$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-				$stmt = $conn->prepare("DELETE FROM users WHERE username = :username");
-				$stmt->bindParam(':username', $_POST['username']);
+					$stmt = $conn->prepare("DELETE FROM users WHERE username = :username");
+					$stmt->bindParam(':username', $_SESSION['login_username']);
 
-				$stmt->execute();
+					$stmt->execute();
 
-				if($stmt->rowCount() == 0){
-					echo "User, ".$user['username']."has been deleted";
-				}else{
-					echo "User has not been found";
-				}
+					if($stmt->rowCount() == 0){
+						echo "User, ".$user['username']."has been deleted";
+					}else{
+						echo "User has not been found";
+					}
 
 				} catch (PDOException $e){
 					echo "Connection failed: ". $e->getMessage();
 				}
-				
+				$_SESSION['login_username'] = 'an';
 			}
 
 
@@ -56,7 +56,7 @@
 			}
 		?>
 
-		<form method=$_POST>
+		<form method=POST>
 			<input type="submit" name="delete" value="Delete Account">
 		</form>
 
