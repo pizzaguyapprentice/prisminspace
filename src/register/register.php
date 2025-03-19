@@ -15,6 +15,28 @@
 		<?php
 			include "../navbar/navbar.php";		
 		?>
+
+		<?php
+			$servername = "localhost";
+			$username = "root";
+			$password = "123";
+			$dbname = "prisminspacedb";
+
+			try{
+				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$userfirstname = $_POST["register_firstname"];
+				$userusername = $_POST["register_username"];
+				$userpassword = $_POST["register_password"];
+				$stmt = $conn->prepare("INSERT INTO users (firstname, username, password) VALUES ('$userfirstname', '$userusername', '$userpassword')");
+				$stmt->execute();
+				header("location: ../index/index.php");
+			}
+			catch(PDOException $e){
+				echo "Error: " . $e->getMessage();
+			}
+			$conn = null;
+		?>
 		<div class="main">
 			<div class="empty">
 
@@ -22,21 +44,21 @@
 			<div class="inputholder">        
 				<div id="card1" class="card">
 					<div class="card-border">
-						<form action="../registered/registered.php" method="POST">
+						<form method="POST">
 							<br>
 							<h2>Register</h2>
 							<br>
 							<label for="firstname">Firstname: </label>
-							<input type="text" id="firstname" name="firstname" required>
+							<input type="text" id="firstname" name="register_firstname" required>
 							<br><br>
 							<label for="username">Username: </label>
-							<input type="text" id="username" name="username" required>
+							<input type="text" id="username" name="register_username" required>
 							<br><br>
 							<label for="password">Password: </label>
-							<input type="password" id="password" name="password" required>
+							<input type="password" id="password" name="register_password" required>
 							<br><br>
 							<label for="repeatPassword">Repeat Password: </label>
-							<input type="password" id="repeatPassword">
+							<input type="password" id="repeatPassword" name="register_repeatPassword" required>
 							<br><br><br><br>
 							<input type="submit" value="Create Account">
 						</form>
@@ -45,21 +67,9 @@
 			</div>
 		</div>
 
-		<div class="footer">
-			<div class="copyright">
-
-			</div>
-			<div class="">
-    
-			</div>
-			<div class="">
-                
-			</div>
-		</div>
+		<?php
+			include "../footer/footer.php";
+		?>
        
 	</body>
 </html>
-
-<?php
-    //echo "It just works - Todd Howard does it";
-?>
