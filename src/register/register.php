@@ -23,14 +23,21 @@
 			$dbname = "prisminspacedb";
 
 			try{
-				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$userfirstname = $_POST["register_firstname"];
-				$userusername = $_POST["register_username"];
-				$userpassword = $_POST["register_password"];
-				$stmt = $conn->prepare("INSERT INTO users (firstname, username, password) VALUES ('$userfirstname', '$userusername', '$userpassword')");
-				$stmt->execute();
-				header("location: ../index/index.php");
+				if(isset($_POST['register_username']) && isset($_POST['register_password']) && $_SERVER["REQUEST_METHOD"] == "POST"){
+					$userfirstname = $_POST["register_firstname"];
+					$userusername = $_POST["register_username"];
+					$userpassword = $_POST["register_password"];
+					if((strlen($userusername) ?? 2) < 3){
+						echo "<p>Username Use Be 3 Or More Characters</p>";
+					}
+					else{
+						$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+						$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+						$stmt = $conn->prepare("INSERT INTO users (firstname, username, password) VALUES ('$userfirstname', '$userusername', '$userpassword')");
+						$stmt->execute();
+						header("location: ../index/index.php");
+					}
+				}
 			}
 			catch(PDOException $e){
 				echo "Error: " . $e->getMessage();
