@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profilepicture'])) {
 
             echo "You have updated your profile picture updated successfully!";
         } catch (PDOException $e) {
-            e->getMessage();
+            $e->getMessage();
         }
     } else {
         echo("Double womp womp.");
