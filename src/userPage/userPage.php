@@ -17,6 +17,7 @@
 		<br>
 		
 		<?php
+
 			if(array_key_exists("signout", $_POST)){
 				$_SESSION['login_username'] = 'an';
 			}
@@ -29,7 +30,7 @@
 
 			if(array_key_exists("delete", $_POST)){
 				try{
-					$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+					$conn = new PDO("mysql:host=$servername;dbname=$dbname", username: $username, password: $password);
 					$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 					$stmt = $conn->prepare("DELETE FROM users WHERE username = :username");
@@ -56,8 +57,13 @@
 			}
 		?>
 
+		<form method=POST action="uploadpicture.php" enctype="multipart/form-data" >
+			<input type="file" name="profilepicture" accept="image/* required">
+			<input type="submit" name="upload" value="Upload picture">
+		</form>
+
 		<form method=POST>
-			<input type="submit" name="delete" value="Delete Account">
+			<input type="submit" name="delete" value="Delete account">
 		</form>
 
 		<form method=POST>

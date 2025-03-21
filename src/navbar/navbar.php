@@ -52,13 +52,49 @@
 	<!-- Contains the icon of user if logged in,
 	otherwise prompts user to log in-->
 	<div id="user-icon" class="navbar-item">
-		<?php
-			if(($_SESSION['login_username'] ?? "an") == "an"){
-				echo '<a href="../login/login.php"><img src="../img/usericon.svg" alt="user login icon"></a>';
+
+	<?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "123";
+		$dbname = "prisminspacedb";
+
+		try {
+			$pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		} catch (PDOException $e) {
+			$e->getMessage();
+		}
+
+		if (isset($_SESSION['login_username'])) {
+			$login_username = $_SESSION['login_username'];
+		} else {
+			$login_username = null;
+		}
+
+		try {
+			$stmt = $pdo->prepare("SELECT profilepicture FROM users WHERE username = :login_username");
+			$stmt->execute(['login_username' => $login_username]);
+			$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+			if (!empty($user['profilepicture'])) {
+				$profilepicture = $user['profilepicture'];
+			} else {
+				$profilepicture = 'usericon.svg';
 			}
-			else{
-				echo '<a href="../userPage/userPage.php"><img src="../img/usericon.svg" alt="user login icon"></a>';
+			
+			if (!file_exists("userprofiles/$profilepicture")) {
+				$profilepicture = 'usericon.svg';
 			}
-		?>
+
+			echo "<a href='../userPage/userPage.php'>
+					<img src='../userPage/userprofiles/" . htmlspecialchars($profilepicture) . "' alt='User Login Icon' width='64'>
+				</a>";
+
+		} catch (PDOException $e) {
+			die("Database error: " . $e->getMessage());
+		}
+	?>
+
 	</div>
 </div>
