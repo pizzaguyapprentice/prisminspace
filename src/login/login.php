@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 
 <?php
-    require "../basket/db_connect.php";
-
+	$servername = "localhost";
+	$username = "root";
+	$password = "123";
+	$dbname = "prisminspacedb";
 	//$userfirstname = $_POST["firstname"];
 	//$userusername = $_POST["username"];
 	//$userpassword = $_POST["password"];
 
 	if(isset($_POST['username']) && isset($_POST['password']) && $_SERVER["REQUEST_METHOD"] == "POST"){
 		try{
-
+			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$stmt = $conn->prepare("SELECT username FROM users WHERE username = :username AND password = :password");
 			$stmt->bindParam(':username', $_POST['username']);
 			$stmt->bindParam(':password', $_POST['password']);
 			$stmt->execute();
-
 			$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 			if($user){
