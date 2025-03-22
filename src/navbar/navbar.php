@@ -87,9 +87,16 @@
 				$profilepicture = 'usericon.svg';
 			}
 
-			echo "<a href='../userPage/userPage.php'>
+			if (isset($_SESSION['login_username'])) {
+				echo "<a href='../userPage/userPage.php'>
 					<img src='../userPage/userprofiles/" . htmlspecialchars($profilepicture) . "' alt='User Login Icon' width='64'>
 				</a>";
+			}
+			else{
+				echo "<a href='../login/login.php'>
+					<img src='../userPage/userprofiles/" . htmlspecialchars($profilepicture) . "' alt='User Login Icon' width='64'>
+				</a>";
+			}
 
 		} catch (PDOException $e) {
 			die("Database error: " . $e->getMessage());
