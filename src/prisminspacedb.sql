@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 22, 2025 at 08:54 PM
+-- Generation Time: Mar 22, 2025 at 11:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `basket`
+-- Table structure for table `baskets`
 --
 
-CREATE TABLE `basket` (
+CREATE TABLE `baskets` (
   `basketid` int(11) NOT NULL,
   `userid` int(11) NOT NULL,
   `productid` int(11) NOT NULL
@@ -53,22 +53,25 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `products` (
-  `productID` int(11) NOT NULL,
-  `productName` varchar(45) DEFAULT NULL,
-  `productPrice` int(11) DEFAULT NULL,
-  `productAmount` int(11) DEFAULT NULL,
-  `productImage` varchar(100) NOT NULL
+  `productid` int(11) NOT NULL,
+  `productname` varchar(45) DEFAULT NULL,
+  `productprice` int(11) DEFAULT NULL,
+  `productamount` int(11) DEFAULT NULL,
+  `productimage` varchar(100) NOT NULL,
+  `productdescription` longtext NOT NULL,
+  `productsize` varchar(45) NOT NULL,
+  `productcategory` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`productID`, `productName`, `productPrice`, `productAmount`, `productImage`) VALUES
-(1, 'test', 50, 11, 'testimage'),
-(2, 'test2', 11, 15, 'testimage2'),
-(3, 'T-Shirt Rich Cotton', 29, 11, ''),
-(4, 'T-Shirt Unique Design', 25, 16, '');
+INSERT INTO `products` (`productid`, `productname`, `productprice`, `productamount`, `productimage`, `productdescription`, `productsize`, `productcategory`) VALUES
+(1, 'test', 50, 11, 'testimage', '', '', ''),
+(2, 'test2', 11, 15, 'testimage2', '', '', ''),
+(3, 'T-Shirt Rich Cotton', 29, 11, '', '', '', ''),
+(4, 'T-Shirt Unique Design', 25, 16, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -144,9 +147,9 @@ INSERT INTO `users` (`userid`, `firstname`, `username`, `password`, `profilepict
 --
 
 --
--- Indexes for table `basket`
+-- Indexes for table `baskets`
 --
-ALTER TABLE `basket`
+ALTER TABLE `baskets`
   ADD PRIMARY KEY (`basketid`),
   ADD KEY `fk_basket_1_idx` (`userid`),
   ADD KEY `fk_basket_2_idx` (`productid`);
@@ -164,31 +167,37 @@ ALTER TABLE `orders`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`productID`);
+  ADD PRIMARY KEY (`productid`);
 
 --
 -- Indexes for table `receipts`
 --
 ALTER TABLE `receipts`
-  ADD PRIMARY KEY (`receiptid`);
+  ADD PRIMARY KEY (`receiptid`),
+  ADD KEY `userid` (`userid`),
+  ADD KEY `orderid` (`orderid`);
 
 --
 -- Indexes for table `refunds`
 --
 ALTER TABLE `refunds`
-  ADD PRIMARY KEY (`refundid`);
+  ADD PRIMARY KEY (`refundid`),
+  ADD KEY `receiptid` (`receiptid`);
 
 --
 -- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
-  ADD PRIMARY KEY (`reviewid`);
+  ADD PRIMARY KEY (`reviewid`),
+  ADD KEY `userid` (`userid`),
+  ADD KEY `productid` (`productid`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`userid`);
+  ADD PRIMARY KEY (`userid`),
+  ADD KEY `userid` (`userid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -204,7 +213,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `receipts`
@@ -235,18 +244,38 @@ ALTER TABLE `users`
 --
 
 --
--- Constraints for table `basket`
+-- Constraints for table `baskets`
 --
-ALTER TABLE `basket`
-  ADD CONSTRAINT `fk_basket_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_basket_2` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `baskets`
+  ADD CONSTRAINT `fk_basket_1` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_basket_2` FOREIGN KEY (`productid`) REFERENCES `products` (`productid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `fk_orders_1` FOREIGN KEY (`userid`) REFERENCES `users` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_orders_2` FOREIGN KEY (`productid`) REFERENCES `products` (`productID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_orders_1` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_orders_2` FOREIGN KEY (`productid`) REFERENCES `products` (`productid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `receipts`
+--
+ALTER TABLE `receipts`
+  ADD CONSTRAINT `receipts_ibfk_1` FOREIGN KEY (`orderid`) REFERENCES `orders` (`orderid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `receipts_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `refunds`
+--
+ALTER TABLE `refunds`
+  ADD CONSTRAINT `refunds_ibfk_1` FOREIGN KEY (`receiptid`) REFERENCES `receipts` (`receiptid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`productid`) REFERENCES `products` (`productid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
