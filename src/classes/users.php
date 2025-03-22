@@ -1,5 +1,5 @@
 <?php
-	include "./credentials.php";
+	include "../classes/credentials.php";
 
 	class User{
 		private static $db_address;
@@ -39,26 +39,7 @@
 			
 		}
 
-		function select_user($login_firstname, $login_username, $login_password){
-			try{
-				$conn = new PDO("mysql:host=$db_address;dbname=$db_name", $db_username, $db_password);
-				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				
-				$stmt = $conn->prepare("SELECT username FROM users WHERE username = :username AND password = :password");
-				$stmt->bindParam(':username', $login_username);
-				$stmt->bindParam(':password', $login_password);
-
-				$stmt->execute();
-				$user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-				return $user;
-			}
-			catch(PDOException $e){
-				echo "Connection failed: " . $e->getMessage();
-			}
-		}
-
-		function login_user($login_firstname, $login_username, $login_password){
+		function select_user($login_username, $login_password){
 			try{
 				$conn = new PDO("mysql:host=$this->db_address;dbname=$this->db_name", $this->db_username, $this->db_password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -68,19 +49,24 @@
 				$stmt->bindParam(':password', $login_password);
 
 				$stmt->execute();
-				$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-				if($user){
-					session_start();
-					$_SESSION['login_username'] = $_POST['username'];
-				}
-				else{
-					echo "This account doesn't exist, or you have given incorrect credentials";
-				}
-	
+				$user = $stmt->fetch(PDO::FETCH_ASSOC);
+				return $user;
 			}
 			catch(PDOException $e){
 				echo "Connection failed: " . $e->getMessage();
+			}
+		}
+
+		public function login_user($login_username, $login_password){
+			$user = $this->select_user($login_username, $login_password);
+			if($user){
+				session_start();
+				$_SESSION['login_username'] = $user['username'];
+				header("location: ../index/index.php");
+			}
+			else{
+				echo "This account doesn't exist, or you have given incorrect credentials";
 			}
 		}
 
@@ -118,6 +104,4 @@
 			
 		}
 	}
-	$dbmm = new User();
-	echo $dbmm->select_user("qwe", "qwe", "qwe");
 ?>
