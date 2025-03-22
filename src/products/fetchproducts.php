@@ -26,19 +26,19 @@ try {
                     <div class='product-details'>
 
                         <div class='product-name'>
-                            <p>{$row['productName']}</p>
+                            <p>{$row['productname']}</p>
                         </div>
 
                         <div class='product-description'>
-                            <p>Description: {$row['productDesc']}</p>
+                            <p>Description: {$row['productdesc']}</p>
                         </div>
 
                         <div class='product-size'>
-                            <p>Size: {$row['productSize']}</p>
+                            <p>Size: {$row['productsize']}</p>
                         </div>
 
                         <div class='product-price'>
-                            <p>Price: {$row['productPrice']}</p>
+                            <p>Price: {$row['productprice']}</p>
                         </div>
 
                         <div class='basket-options'>
@@ -50,10 +50,7 @@ try {
                                 <button>Remove from basket</button>
                             </div>
                         </div>
-                        
-                        
-
-
+                
                     </div>
                 </div>
               </div>";

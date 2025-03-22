@@ -54,6 +54,9 @@
 	<div id="user-icon" class="navbar-item">
 
 	<?php
+
+		$rootdir = $_SERVER['DOCUMENT_ROOT'];
+
 		$servername = "localhost";
 		$username = "root";
 		$password = "123";
@@ -63,7 +66,7 @@
 			$pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch (PDOException $e) {
-			$e->getMessage();
+			echo("Database error: " . $e->getMessage());
 		}
 
 		if (isset($_SESSION['login_username'])) {
@@ -77,31 +80,29 @@
 			$stmt->execute(['login_username' => $login_username]);
 			$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-			if (!empty($user['profilepicture'])) {
-				$profilepicture = $user['profilepicture'];
-			} else {
-				$profilepicture = 'usericon.svg';
-			}
-			
-			if (!file_exists("userprofiles/$profilepicture")) {
+			$profilepicture = !empty($user['profilepicture']) ? $user['profilepicture'] : 'usericon.svg';
+
+			// Ensure file exists in server's filesystem
+			if (!file_exists("$rootdir/userPage/userprofiles/$profilepicture")) {
 				$profilepicture = 'usericon.svg';
 			}
 
-			if ($_SESSION['login_username'] == "an") {
+			$imgpath = "/userPage/userprofiles/" . htmlspecialchars($profilepicture);
+
+			if($login_username == "an") {
 				echo "<a href='../login/login.php'>
-					<img src='../userPage/userprofiles/" . htmlspecialchars($profilepicture) . "' alt='User Login Icon' width='64'>
+					<img src='$imgpath' alt='User Login Icon' width='64'>
 				</a>";
-			}
-			else{
+			}else{
 				echo "<a href='../userPage/userPage.php'>
-					<img src='../userPage/userprofiles/" . htmlspecialchars($profilepicture) . "' alt='User Login Icon' width='64'>
+					<img src='$imgpath' alt='User Login Icon' width='64'>
 				</a>";
 			}
-
 		} catch (PDOException $e) {
-			die("Database error: " . $e->getMessage());
+			echo("WOmp woopmp: " . $e->getMessage());
 		}
 	?>
+
 
 	</div>
 </div>
