@@ -41,16 +41,16 @@
 			}
 		?>
 
-		<form method=POST action="uploadpicture.php" enctype="multipart/form-data" >
+		<form method="post" action="uploadpicture.php" enctype="multipart/form-data" >
 			<input type="file" name="profilepicture" accept="image/* required">
 			<input type="submit" name="upload" value="Upload picture">
 		</form>
 
-		<form method=POST>
+		<form method="POST">
 			<input type="submit" name="delete" value="Delete account">
 		</form>
 
-		<form method=POST>
+		<form method="POST">
 			<input type="submit" name="signout" value="Sign Out">
 		</form>
 		

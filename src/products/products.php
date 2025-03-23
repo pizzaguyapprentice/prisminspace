@@ -2,7 +2,6 @@
 
 <html lang="en">
     <head>
-        <link rel="icon" href="../img/placeholderlogo.svg">
         <title>prisminspace</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

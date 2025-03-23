@@ -8,8 +8,19 @@
 	</div>
 	<!-- menubar, will be responsive based on viewport -->
 	<div id="menu-bar" class="navbar-item">
-	
-		<input class="menu-item" id="searchbar" type="text" placeholder="Search here..." cols="5">
+
+
+		<form class="menu-item" id="search" method="post" action="../products/products.php">
+			<input type="submit" hidden />
+			<input class="menu-item" id="searchbar" type="text" placeholder="Search here..." cols="5">
+			<div id="filterholder">
+				<select name="filter" id="filter">
+					<option value="productname">Name</option>
+					<option value="category">Category</option>
+					<option value="price">Price</option>
+				</select> 
+			</div>
+		</form>
 
 		<!-- menubar, will be responsive based on viewport -->
 		<div class="menu-item">

@@ -49,21 +49,37 @@ body{
 	justify-content: flex-start;
 	margin-left:2vw;
 }
-.menu-item #searchbar{
+#searchbar{
 	margin:0;
 	min-height: 0.5vw;
 	min-width:3vw;
 	height:1.5vw;
-	width:0vw;
-
-}
-#searchbar{
-	margin-right:3vw;
+	margin-right:1vw;
 	width:8vw;
 	border-radius: 10px;
 	border-color: white;
 	border-radius: none;
 }
+
+#search{
+	display:flex;
+	flex-direction: row;
+}
+#filter{
+	appearance: none;
+	opacity:0.0;
+	width:32px;
+	height:32px;
+}
+#filterholder{
+    background-image: url('../img/filter.svg');
+    background-repeat: no-repeat;
+	background-position: center;
+	width:32px;
+	height: 32px;
+	margin-right: 2vw;
+}
+
 .menu-item a{
 	font-family: metallord;
 	text-decoration: none;
