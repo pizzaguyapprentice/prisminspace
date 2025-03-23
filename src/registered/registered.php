@@ -15,8 +15,8 @@
 			include "../navbar/navbar.php";	
 		?>
 		<br>
-		<p>Welcome <?php echo $_POST["firstname"]; ?>, You Have Registered.<br>
-		Now Navigate To The <a href="../login/login.php">Login</a> Page To Login To The Website</p>
+		<p>Welcome <?php echo $_SESSION["login_username"]; ?>, You Have Registered.<br>
+		You Have Been Logged In Automatically But To Login Manually Visit The <a href="../login/login.php">Login</a> Page To Login!</p>
 	</body>
 
 </html>

@@ -10,44 +10,34 @@
         <link rel="stylesheet" href="register.css">
         <!-- <link rel="stylesheet" href="./output.css"> -->
     </head>
+	<?php
+		include "../classes/users.php";
 
+		$message = "";
+
+		if(isset($_POST['register_firstname']) && isset($_POST['register_username']) && isset($_POST['register_password']) && isset($_POST['register_username']) && $_SERVER["REQUEST_METHOD"] == "POST"){
+			if(((strlen($_POST['register_username']) ?? 2) < 3)){
+				$message = "Username Must Be 3 Or More Characters";
+			}
+			else if(User::does_user_exist($_POST['register_username'])){
+				$message = "A User With That Username Already Exists";
+			}
+			else if($_POST['register_password'] != $_POST['register_repeat_password']){
+				$message = "Passwords Do Not Match";
+			}
+			else{
+				$user = new User($_POST['register_firstname'], $_POST['register_username'], $_POST['register_password'], "N/A");
+				$user->add_user();
+				$user->login_user("../registered/registered.php");
+			}
+		}
+	?>
     <body>
 		<?php
 			include "../navbar/navbar.php";		
 		?>
-
-		<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "123";
-			$dbname = "prisminspacedb";
-
-			try{
-				if(isset($_POST['register_username']) && isset($_POST['register_password']) && $_SERVER["REQUEST_METHOD"] == "POST"){
-					$userfirstname = $_POST["register_firstname"];
-					$userusername = $_POST["register_username"];
-					$userpassword = $_POST["register_password"];
-					if((strlen($userusername) ?? 2) < 3){
-						echo "<p>Username Use Be 3 Or More Characters</p>";
-					}
-					else{
-						$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-						$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-						$stmt = $conn->prepare("INSERT INTO users (firstname, username, password) VALUES ('$userfirstname', '$userusername', '$userpassword')");
-						$stmt->execute();
-						header("location: ../index/index.php");
-					}
-				}
-			}
-			catch(PDOException $e){
-				echo "Error: " . $e->getMessage();
-			}
-			$conn = null;
-		?>
 		<div class="main">
-			<div class="empty">
-
-			</div>
+			<div class="empty"></div>
 			<div class="inputholder">        
 				<div id="card1" class="card">
 					<div class="card-border">
@@ -65,9 +55,14 @@
 							<input type="password" id="password" name="register_password" required>
 							<br><br>
 							<label for="repeatPassword">Repeat Password: </label>
-							<input type="password" id="repeatPassword" name="register_repeatPassword" required>
+							<input type="password" id="repeatPassword" name="register_repeat_password" required>
 							<br><br><br><br>
 							<input type="submit" value="Create Account">
+							<?php
+								echo "<br>";
+								echo "<br>";
+								echo "<p style='color: red; font-size:0.6rem'>" . $message . "</p>";
+							?>
 						</form>
 					</div>
 				</div>

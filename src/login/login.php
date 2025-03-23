@@ -3,9 +3,11 @@
 <?php
 	include "../classes/users.php";
 
+	$message = "";
+
 	if(isset($_POST['username']) && isset($_POST['password']) && $_SERVER["REQUEST_METHOD"] == "POST"){
-		$user = new User();
-		echo $user->login_user($_POST['username'], $_POST['password']);
+		$user = new User("N/A", $_POST['username'], $_POST['password'], "N/A");
+		$message = $user->login_user("../index/index.php");
 	}
 ?>
 
@@ -45,8 +47,13 @@
 							<input type="password" id="password" name="password" required>
 							<br><br><br>
 							<input type="submit" value="Login">
+							<?php
+								echo "<br>";
+								echo "<br>";
+								echo "<p style='color: red; font-size:0.6rem'>" . $message . "</p>";
+							?>
 						</form>
-						<br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br>
 						<p>Don't Have A Login? <a href="../register/register.php">Register</a> Here!</p>
                     </div>
                 </div>
