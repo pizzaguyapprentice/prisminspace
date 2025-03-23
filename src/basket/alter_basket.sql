@@ -1,3 +1,0 @@
-ALTER TABLE `basket` 
-ADD COLUMN `quantity` int(11) NOT NULL DEFAULT 1,
-MODIFY `basketID` int(11) NOT NULL AUTO_INCREMENT;

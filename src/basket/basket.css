@@ -4,144 +4,137 @@
     padding: 20px;
 }
 
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.product-card {
+    background: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+}
+
+.price {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.add-btn, .remove-btn, .checkout-btn {
+    width: 100%;
+    padding: 8px 15px;
+    border: none;
+    background: #e31837;
+    color: white;
+    cursor: pointer;
+}
+
+.basket-summary {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.basket-summary h2 {
+    margin-bottom: 20px;
+}
+
 .basket-item {
     display: flex;
-    align-items: center;
-    padding: 20px;
-    margin-bottom: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
 }
 
-.basket-item img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-right: 20px;
-}
-
-.item-details {
-    flex: 1;
-}
-
-.item-details h3 {
-    margin: 0 0 10px 0;
-    color: #333;
-}
-
-.item-quantity {
-    display: flex;
-    align-items: center;
-    margin: 0 20px;
-}
-
-.quantity-btn {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-}
-
-.quantity-btn:hover {
-    background: #f5f5f5;
-}
-
-.quantity {
-    margin: 0 15px;
-    font-size: 16px;
-    min-width: 20px;
-    text-align: center;
-}
-
-.item-price {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    min-width: 100px;
+.total {
+    margin-top: 20px;
     text-align: right;
+    font-size: 1.2em;
 }
 
-.remove-item {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #999;
-    cursor: pointer;
-    padding: 5px;
-    line-height: 1;
-}
-
-.remove-item:hover {
-    color: #ff4444;
-}
-
-.checkout-section {
-    background: white;
+/* Receipt Styles */
+.receipt {
+    background: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.receipt h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.receipt-items {
+    margin-bottom: 20px;
+}
+
+.receipt-item {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
 }
 
-.total-price {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
+.receipt-total {
+    text-align: right;
+    padding-top: 15px;
 }
 
-.checkout-button {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.2s;
+.receipt-address {
+    margin: 20px 0;
+    padding: 10px;
+    background: #f9f9f9;
 }
 
-.checkout-button:hover {
-    background: #45a049;
+/* Form Styles */
+.address-form {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
 }
 
-.empty-basket {
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Order Success */
+.order-success {
     text-align: center;
-    padding: 40px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
-.empty-basket h2 {
-    color: #666;
+.order-success h2 {
     margin-bottom: 20px;
 }
 
 .continue-shopping {
     display: inline-block;
-    background: #4CAF50;
+    padding: 10px 20px;
+    background: #e31837;
     color: white;
     text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 4px;
-    transition: background 0.2s;
-}
-
-.continue-shopping:hover {
-    background: #45a049;
+    margin-top: 20px;
 }
