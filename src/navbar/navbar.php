@@ -1,4 +1,3 @@
-
 <!-- navbar is sticky -->
 <div class="navbar">
 	<link rel ="stylesheet" href="../navbar/navbar.css?v=<?php echo time();?>">
@@ -10,9 +9,9 @@
 	<div id="menu-bar" class="navbar-item">
 
 
-		<form class="menu-item" id="search" method="post" action="../products/products.php">
+		<form class="menu-item" id="search" method="get" action="../products/products.php">
 			<input type="submit" hidden />
-			<input class="menu-item" id="searchbar" type="text" placeholder="Search here..." cols="5">
+			<input class="menu-item" id="searchbar" type="text" placeholder="Search here..." cols="5" name="query">
 			<div id="filterholder">
 				<select name="filter" id="filter">
 					<option value="productname">Name</option>
