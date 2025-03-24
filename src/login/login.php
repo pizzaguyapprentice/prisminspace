@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-	include "../classes/users.php";
+	include "../classes/user.php";
 
 	$message = "";
 

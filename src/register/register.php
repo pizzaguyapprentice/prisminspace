@@ -9,8 +9,7 @@
         <!-- <link rel="stylesheet" href="./output.css"> -->
     </head>
 	<?php
-		include "../classes/users.php";
-
+		include "../classes/user.php";
 		$message = "";
 
 		if(isset($_POST['register_firstname']) && isset($_POST['register_username']) && isset($_POST['register_password']) && isset($_POST['register_username']) && $_SERVER["REQUEST_METHOD"] == "POST"){
@@ -32,11 +31,11 @@
 	?>
     <body>
 		<?php
-			include "../navbar/navbar.php";		
+			include "../navbar/navbar.php";
 		?>
 		<div class="main">
 			<div class="empty"></div>
-			<div class="inputholder">        
+			<div class="inputholder">
 				<div id="card1" class="card">
 					<div class="card-border">
 						<form method="POST">
