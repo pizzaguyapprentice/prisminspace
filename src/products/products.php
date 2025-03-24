@@ -36,14 +36,7 @@
 					
 					<!-- Singular Card Container that holds-->
 					<?php 
-
-                        if (isset($_GET['query']) || isset($_GET['filter'])) {
-                            include("./filteredfetchproducts.php");
-                            echo "User came through search/filter.";
-                        } else {
-                            include("./fetchproducts.php");
-                            echo "User came through direct navigation.";
-                        }
+						include("fetchproducts.php");
 					?>
             	</div>
 			</div>

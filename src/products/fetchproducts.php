@@ -60,6 +60,6 @@ try {
               </div>";
     }
 } catch (PDOException $e) {
-    echo "Womp womp: here" . $e->getMessage();
+    echo "Womp womp: " . $e->getMessage();
 }
 ?>

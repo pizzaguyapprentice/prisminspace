@@ -8,7 +8,7 @@
         <link rel ="stylesheet" href="../main.css">
         <link rel="stylesheet" href="registered.css">
         <!-- <link rel="stylesheet" href="./output.css"> -->
-    </head>	
+    </head>
 
 	<body>
 		<?php
@@ -26,7 +26,7 @@
 			$username = "root";
 			$password = "123";
 			$dbname = "prisminspacedb";
- 
+
 
 			if(array_key_exists("delete", $_POST)){
 				$user = new User("N/A", $_SESSION['login_username'], "N/A", "N/A");
