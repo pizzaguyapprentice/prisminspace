@@ -45,8 +45,8 @@
 
 				$stmt->execute();
 
-				$user = $stmt->fetch(PDO::FETCH_ASSOC);
-				return $user;
+				$receipt = $stmt->fetch(PDO::FETCH_ASSOC);
+				return $receipt;
 			}
 			catch(PDOException $e){
 				echo "Connection failed: " . $e->getMessage();

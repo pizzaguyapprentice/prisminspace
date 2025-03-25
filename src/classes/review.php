@@ -24,7 +24,7 @@
 
 		public function add_receipt(){
 			try{
-				$stmt = $this->conn->prepare("INSERT INTO receipts (reviewid, productid, reviewdescription, reviewrating, userid) VALUES (:reviewid, :productid, :reviewdescription, :reviewrating, :userid)");
+				$stmt = $this->conn->prepare("INSERT INTO reviews (reviewid, productid, reviewdescription, reviewrating, userid) VALUES (:reviewid, :productid, :reviewdescription, :reviewrating, :userid)");
 				$stmt->bindParam(':reviewid', $this->reviewid);
 				$stmt->bindParam(':productid', $this->productid);
 				$stmt->bindParam(':reviewdescription', $this->reviewdescription);
@@ -40,13 +40,13 @@
 
 		public function select_receipt(){
 			try{
-				$stmt = ($this->connect())->prepare("SELECT * FROM receipts WHERE reviewid = :reviewid");
+				$stmt = ($this->connect())->prepare("SELECT * FROM reviews WHERE reviewid = :reviewid");
 				$stmt->bindParam(':reviewid', $this->reviewid);
 
 				$stmt->execute();
 
-				$user = $stmt->fetch(PDO::FETCH_ASSOC);
-				return $user;
+				$review = $stmt->fetch(PDO::FETCH_ASSOC);
+				return $review;
 			}
 			catch(PDOException $e){
 				echo "Connection failed: " . $e->getMessage();
@@ -59,18 +59,18 @@
 
 		public function delete_receipt(){
 			try{
-				$stmt = $this->conn->prepare("DELETE FROM receipts WHERE reviewid = :reviewid");
+				$stmt = $this->conn->prepare("DELETE FROM reviews WHERE reviewid = :reviewid");
 				$stmt->bindParam(':reviewid', $this->reviewid);
 
 				$stmt->execute();
 
-				$receipt = $stmt->fetch(PDO::FETCH_ASSOC);
+				$review = $stmt->fetch(PDO::FETCH_ASSOC);
 
 				if($stmt->rowCount() == 0){
-					echo "Receipt, ". $receipt['reviewid'] . "has been deleted";
+					echo "Review, ". $review['reviewid'] . "has been deleted";
 				}
 				else{
-					echo "Receipt has not been found";
+					echo "Review has not been found";
 				}
 			}
 			catch(PDOException $e){
