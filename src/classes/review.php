@@ -1,7 +1,7 @@
 <?php
 	include "../classes/database.php";
 
-	class Receipt extends Database{
+	class Review extends Database{
 		private $reviewid;
 		private $productid;
 		private $reviewdescription;
@@ -22,7 +22,7 @@
 			$this->userid = $userid;
 		}
 
-		public function add_receipt(){
+		public function add_review(){
 			try{
 				$stmt = $this->conn->prepare("INSERT INTO reviews (reviewid, productid, reviewdescription, reviewrating, userid) VALUES (:reviewid, :productid, :reviewdescription, :reviewrating, :userid)");
 				$stmt->bindParam(':reviewid', $this->reviewid);
@@ -38,7 +38,7 @@
 			}
 		}
 
-		public function select_receipt(){
+		public function select_review(){
 			try{
 				$stmt = ($this->connect())->prepare("SELECT * FROM reviews WHERE reviewid = :reviewid");
 				$stmt->bindParam(':reviewid', $this->reviewid);
@@ -53,11 +53,11 @@
 			}
 		}
 
-		public function upreviewrating_receipt($firstname, $username, $password){
+		public function update_review(){
 			
 		}
 
-		public function delete_receipt(){
+		public function delete_review(){
 			try{
 				$stmt = $this->conn->prepare("DELETE FROM reviews WHERE reviewid = :reviewid");
 				$stmt->bindParam(':reviewid', $this->reviewid);

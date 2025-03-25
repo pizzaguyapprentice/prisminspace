@@ -2,10 +2,14 @@
 	include "../classes/database.php";
 
 	class Product extends Database{
+		private $productid;
 		private $productname;
 		private $productprice;
 		private $productamount;
 		private $productimage;
+		private $productdescription;
+		private $productsize;
+		private $productcategory;
 
 		/*function __construct($productname, $productprice, $productamount, $productimage){
 			$db = new Credentials();

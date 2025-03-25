@@ -6,8 +6,11 @@
 		private $date;
 		private $userid;
 		private $productid;
+		private $address;
+		private $city;
+		private $postcode;
 
-		public function __construct($orderid, $date, $userid, $productid){
+		public function __construct($orderid, $date, $userid, $productid, $address, $city, $postcode){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
@@ -18,11 +21,14 @@
 			$this->date = $date;
 			$this->userid = $userid;
 			$this->productid = $productid;
+			$this->address = $address;
+			$this->city = $city;
+			$this->postcode = $postcode;
 		}
 
 		public function add_order(){
 			try{
-				$stmt = ($this->connect())->prepare("INSERT INTO orders (orderid, date, userid, productid) VALUES (:orderid, :date, :userid, :productid)");
+				$stmt = ($this->connect())->prepare("INSERT INTO orders (orderid, date, userid, productid, address, city, postcode) VALUES (:orderid, :date, :userid, :productid, :address, :city, :postcode)");
 				$stmt->bindParam(':orderid', $this->orderid);
 				$stmt->bindParam(':date', $this->date);
 				$stmt->bindParam(':userid', $this->userid);
@@ -50,7 +56,7 @@
 			}
 		}
 
-		public function update_user($firstname, $username, $password){
+		public function update_user(){
 			
 		}
 

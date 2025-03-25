@@ -20,7 +20,7 @@
 			$this->accepted = $accepted;
 		}
 
-		public function add_receipt(){
+		public function add_refund(){
 			try{
 				$stmt = $this->conn->prepare("INSERT INTO refunds (refundid, receiptid, date, accepted) VALUES (:refundid, :receiptid, :date, :accepted)");
 				$stmt->bindParam(':refundid', $this->refundid);
@@ -35,7 +35,7 @@
 			}
 		}
 
-		public function select_receipt(){
+		public function select_refund(){
 			try{
 				$stmt = ($this->connect())->prepare("SELECT * FROM refunds WHERE refundid = :refundid");
 				$stmt->bindParam(':refundid', $this->refundid);
@@ -50,11 +50,11 @@
 			}
 		}
 
-		public function update_receipt($firstname, $username, $password){
+		public function update_refund(){
 			
 		}
 
-		public function delete_receipt(){
+		public function delete_refund(){
 			try{
 				$stmt = $this->conn->prepare("DELETE FROM refunds WHERE refundid = :refundid");
 				$stmt->bindParam(':refundid', $this->refundid);

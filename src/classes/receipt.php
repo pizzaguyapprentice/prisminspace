@@ -53,7 +53,7 @@
 			}
 		}
 
-		public function update_receipt($firstname, $username, $password){
+		public function update_receipt(){
 			
 		}
 

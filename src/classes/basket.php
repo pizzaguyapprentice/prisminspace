@@ -47,7 +47,7 @@
 			}
 		}
 
-		public function update_basket($basketid, $userid, $productid){
+		public function update_basket(){
 			
 		}
 
