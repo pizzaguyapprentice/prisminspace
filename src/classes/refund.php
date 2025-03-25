@@ -7,7 +7,7 @@
 		private $date;
 		private $accepted;
 
-		function __construct($refundid, $receiptid, $date, $accepted){
+		public function __construct($refundid, $receiptid, $date, $accepted){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
@@ -20,7 +20,7 @@
 			$this->accepted = $accepted;
 		}
 
-		function add_receipt(){
+		public function add_receipt(){
 			try{
 				$stmt = $this->conn->prepare("INSERT INTO receipts (refundid, receiptid, date, accepted) VALUES (:refundid, :receiptid, :date, :accepted)");
 				$stmt->bindParam(':refundid', $this->refundid);
@@ -50,11 +50,11 @@
 			}
 		}
 
-		/*function update_receipt($firstname, $username, $password){
+		public function update_receipt($firstname, $username, $password){
 			
-		}*/
+		}
 
-		function delete_receipt(){
+		public function delete_receipt(){
 			try{
 				$stmt = $this->conn->prepare("DELETE FROM receipts WHERE refundid = :refundid");
 				$stmt->bindParam(':refundid', $this->refundid);

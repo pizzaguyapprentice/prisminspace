@@ -8,7 +8,7 @@
 		private $date;
 		private $totalprice;
 
-		function __construct($receiptid, $userid, $orderid, $date, $totalprice){
+		public function __construct($receiptid, $userid, $orderid, $date, $totalprice){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
@@ -22,7 +22,7 @@
 			$this->totalprice = $totalprice;
 		}
 
-		function add_receipt(){
+		public function add_receipt(){
 			try{
 				$stmt = $this->conn->prepare("INSERT INTO receipts (receiptid, userid, orderid, date, totalprice) VALUES (:receiptid, :userid, :orderid, :date, :totalprice)");
 				$stmt->bindParam(':receiptid', $this->receiptid);
@@ -53,11 +53,11 @@
 			}
 		}
 
-		/*function update_receipt($firstname, $username, $password){
+		public function update_receipt($firstname, $username, $password){
 			
-		}*/
+		}
 
-		function delete_receipt(){
+		public function delete_receipt(){
 			try{
 				$stmt = $this->conn->prepare("DELETE FROM receipts WHERE receiptid = :receiptid");
 				$stmt->bindParam(':receiptid', $this->receiptid);

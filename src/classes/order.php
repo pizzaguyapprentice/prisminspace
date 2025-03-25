@@ -7,7 +7,7 @@
 		private $userid;
 		private $productid;
 
-		function __construct($orderid, $date, $userid, $productid){
+		public function __construct($orderid, $date, $userid, $productid){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
@@ -20,7 +20,7 @@
 			$this->productid = $productid;
 		}
 
-		function add_order(){
+		public function add_order(){
 			try{
 				$stmt = ($this->connect())->prepare("INSERT INTO orders (orderid, date, userid, productid) VALUES (:orderid, :date, :userid, :productid)");
 				$stmt->bindParam(':orderid', $this->orderid);
@@ -50,11 +50,11 @@
 			}
 		}
 
-		/*function update_user($firstname, $username, $password){
+		public function update_user($firstname, $username, $password){
 			
-		}*/
+		}
 
-		function delete_order(){
+		public function delete_order(){
 			try{
 				$stmt = ($this->connect())->prepare("DELETE FROM orders WHERE orderid = :orderid");
 				$stmt->bindParam(':orderid', $this->orderid);

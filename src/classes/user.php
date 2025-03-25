@@ -7,7 +7,7 @@
 		private $password;
 		private $profilepicture;
 
-		function __construct($firstname, $username, $password, $profilepicture){
+		public function __construct($firstname, $username, $password, $profilepicture){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
@@ -28,7 +28,7 @@
 			}
 		}
 
-		function add_user(){
+		public function add_user(){
 			try{
 				$stmt = $this->conn->prepare("INSERT INTO users (firstname, username, password, profilepicture) VALUES (:firstname, :username, :password, :profilepicture)");
 				$stmt->bindParam(':firstname', $this->firstname);
@@ -71,7 +71,7 @@
 			}
 		}
 
-		static function does_user_exist($username){
+		public static function does_user_exist($username){
 			try{
 				$conn = new Database()->connect();
 				$stmt = $conn->prepare("SELECT username FROM users WHERE username = :username");
@@ -93,11 +93,11 @@
 			}
 		}
 
-		/*function update_user($firstname, $username, $password){
+		public function update_user($firstname, $username, $password){
 			
-		}*/
+		}
 
-		function delete_user(){
+		public function delete_user(){
 			try{
 				$stmt = $this->conn->prepare("DELETE FROM users WHERE username = :username");				
 				$stmt->bindParam(':username', $this->username);
@@ -118,5 +118,4 @@
 			}
 		}
 	}
-	//echo User::does_user_exist("qwe");
 ?>

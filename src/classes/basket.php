@@ -6,7 +6,7 @@
 		private $userid;
 		private $productid;
 
-		function __construct($basketid, $userid, $productid){
+		public function __construct($basketid, $userid, $productid){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
@@ -18,7 +18,7 @@
 			$this->productid = $productid;
 		}
 
-		function add_basket(){
+		public function add_basket(){
 			try{
 				$stmt = ($this->connect())->prepare("INSERT INTO basket (basketid, userid, productid) VALUES (:basketid, :userid, :productid)");
 				$stmt->bindParam(':basketid', $this->basketid);
@@ -47,11 +47,11 @@
 			}
 		}
 
-		/*function update_basket($basketid, $userid, $productid){
+		public function update_basket($basketid, $userid, $productid){
 			
-		}*/
+		}
 
-		function delete_basket(){
+		public function delete_basket(){
 			try{
 				$stmt = ($this->connect())->prepare("DELETE FROM basket WHERE basketid = :basketid");				
 				$stmt->bindParam(':basketid', $this->basketid);

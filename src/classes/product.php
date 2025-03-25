@@ -20,7 +20,7 @@
 			$this->productimage = $productimage;
 		}*/
 
-		function __construct(){
+		public function __construct(){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();

@@ -8,7 +8,7 @@
 		private $reviewrating;
 		private $userid;
 
-		function __construct($reviewid, $productid, $reviewdescription, $reviewrating, $userid){
+		public function __construct($reviewid, $productid, $reviewdescription, $reviewrating, $userid){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
@@ -22,7 +22,7 @@
 			$this->userid = $userid;
 		}
 
-		function add_receipt(){
+		public function add_receipt(){
 			try{
 				$stmt = $this->conn->prepare("INSERT INTO receipts (reviewid, productid, reviewdescription, reviewrating, userid) VALUES (:reviewid, :productid, :reviewdescription, :reviewrating, :userid)");
 				$stmt->bindParam(':reviewid', $this->reviewid);
@@ -53,11 +53,11 @@
 			}
 		}
 
-		/*function upreviewrating_receipt($firstname, $username, $password){
+		public function upreviewrating_receipt($firstname, $username, $password){
 			
-		}*/
+		}
 
-		function delete_receipt(){
+		public function delete_receipt(){
 			try{
 				$stmt = $this->conn->prepare("DELETE FROM receipts WHERE reviewid = :reviewid");
 				$stmt->bindParam(':reviewid', $this->reviewid);

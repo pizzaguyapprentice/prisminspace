@@ -6,9 +6,10 @@
 		protected static $db_username;
 		protected static $db_password;
 		protected static $db_name;
+		// Deprecated Do Not Use Conn. It Will Be Removed.
 		protected static $conn;
 
-		function __construct(){
+		public function __construct(){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
