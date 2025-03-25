@@ -22,7 +22,7 @@
 
 		public function add_refund(){
 			try{
-				$stmt = $this->conn->prepare("INSERT INTO refunds (refundid, receiptid, date, accepted) VALUES (:refundid, :receiptid, :date, :accepted)");
+				$stmt = ($this->connect())->prepare("INSERT INTO refunds (refundid, receiptid, date, accepted) VALUES (:refundid, :receiptid, :date, :accepted)");
 				$stmt->bindParam(':refundid', $this->refundid);
 				$stmt->bindParam(':receiptid', $this->receiptid);
 				$stmt->bindParam(':date', $this->date);
@@ -56,7 +56,7 @@
 
 		public function delete_refund(){
 			try{
-				$stmt = $this->conn->prepare("DELETE FROM refunds WHERE refundid = :refundid");
+				$stmt = ($this->connect())->prepare("DELETE FROM refunds WHERE refundid = :refundid");
 				$stmt->bindParam(':refundid', $this->refundid);
 
 				$stmt->execute();

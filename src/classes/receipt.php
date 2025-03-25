@@ -24,7 +24,7 @@
 
 		public function add_receipt(){
 			try{
-				$stmt = $this->conn->prepare("INSERT INTO receipts (receiptid, userid, orderid, date, totalprice) VALUES (:receiptid, :userid, :orderid, :date, :totalprice)");
+				$stmt = ($this->connect())->prepare("INSERT INTO receipts (receiptid, userid, orderid, date, totalprice) VALUES (:receiptid, :userid, :orderid, :date, :totalprice)");
 				$stmt->bindParam(':receiptid', $this->receiptid);
 				$stmt->bindParam(':userid', $this->userid);
 				$stmt->bindParam(':orderid', $this->orderid);
@@ -59,7 +59,7 @@
 
 		public function delete_receipt(){
 			try{
-				$stmt = $this->conn->prepare("DELETE FROM receipts WHERE receiptid = :receiptid");
+				$stmt = ($this->connect())->prepare("DELETE FROM receipts WHERE receiptid = :receiptid");
 				$stmt->bindParam(':receiptid', $this->receiptid);
 
 				$stmt->execute();

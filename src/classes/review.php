@@ -24,7 +24,7 @@
 
 		public function add_review(){
 			try{
-				$stmt = $this->conn->prepare("INSERT INTO reviews (reviewid, productid, reviewdescription, reviewrating, userid) VALUES (:reviewid, :productid, :reviewdescription, :reviewrating, :userid)");
+				$stmt = ($this->connect())->prepare("INSERT INTO reviews (reviewid, productid, reviewdescription, reviewrating, userid) VALUES (:reviewid, :productid, :reviewdescription, :reviewrating, :userid)");
 				$stmt->bindParam(':reviewid', $this->reviewid);
 				$stmt->bindParam(':productid', $this->productid);
 				$stmt->bindParam(':reviewdescription', $this->reviewdescription);
@@ -59,7 +59,7 @@
 
 		public function delete_review(){
 			try{
-				$stmt = $this->conn->prepare("DELETE FROM reviews WHERE reviewid = :reviewid");
+				$stmt = ($this->connect())->prepare("DELETE FROM reviews WHERE reviewid = :reviewid");
 				$stmt->bindParam(':reviewid', $this->reviewid);
 
 				$stmt->execute();

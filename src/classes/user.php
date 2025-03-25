@@ -18,19 +18,11 @@
 			$this->username = $username;
 			$this->password = $password;
 			$this->profilepicture = $profilepicture;
-
-			try{
-				$this->conn = new PDO("mysql:host=$this->db_address;dbname=$this->db_name", $this->db_username, $this->db_password);
-				$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			}
-			catch(PDOException $e){
-				echo "Connection failed: " . $e->getMessage();
-			}
 		}
 
 		public function add_user(){
 			try{
-				$stmt = $this->conn->prepare("INSERT INTO users (firstname, username, password, profilepicture) VALUES (:firstname, :username, :password, :profilepicture)");
+				$stmt = ($this->connect())->prepare("INSERT INTO users (firstname, username, password, profilepicture) VALUES (:firstname, :username, :password, :profilepicture)");
 				$stmt->bindParam(':firstname', $this->firstname);
 				$stmt->bindParam(':username', $this->username);
 				$stmt->bindParam(':password', $this->password);
@@ -73,8 +65,7 @@
 
 		public static function does_user_exist($username){
 			try{
-				$conn = new Database()->connect();
-				$stmt = $conn->prepare("SELECT username FROM users WHERE username = :username");
+				$stmt = (Database::connect())->prepare("SELECT username FROM users WHERE username = :username");
 				$stmt->bindParam(':username', $username);
 
 				$stmt->execute();
@@ -99,7 +90,7 @@
 
 		public function delete_user(){
 			try{
-				$stmt = $this->conn->prepare("DELETE FROM users WHERE username = :username");				
+				$stmt = ($this->connect())->prepare("DELETE FROM users WHERE username = :username");				
 				$stmt->bindParam(':username', $this->username);
 
 				$stmt->execute();

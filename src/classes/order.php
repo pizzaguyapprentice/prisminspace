@@ -56,7 +56,7 @@
 			}
 		}
 
-		public function update_user(){
+		public function update_order(){
 			
 		}
 

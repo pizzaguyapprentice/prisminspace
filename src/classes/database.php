@@ -2,31 +2,14 @@
 	include "../classes/credentials.php";
 
 	class Database{
-		protected static $db_address;
-		protected static $db_username;
-		protected static $db_password;
-		protected static $db_name;
-		// Deprecated Do Not Use Conn. It Will Be Removed.
-		protected static $conn;
+		private static $db_address = "localhost";
+		private static $db_username = "root";
+		private static $db_password = "123";
+		private static $db_name = "prisminspacedb";
 
-		public function __construct(){
-			$db = new Credentials();
-			$this->db_address = $db->get_db_address();
-			$this->db_username = $db->get_db_username();
-			$this->db_password = $db->get_db_password();
-			$this->db_name = $db->get_db_name();
+		public static function connect(){
 			try{
-				$this->conn = new PDO("mysql:host=$this->db_address;dbname=$this->db_name", $this->db_username, $this->db_password);
-				$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			}
-			catch(PDOException $e){
-				echo "Connection failed: " . $e->getMessage();
-			}
-		}
-
-		public function connect(){
-			try{
-				$conn = new PDO("mysql:host=$this->db_address;dbname=$this->db_name", $this->db_username, $this->db_password);
+				$conn = new PDO("mysql:host=" . Database::$db_address . ";dbname=" . Database::$db_name, Database::$db_username, Database::$db_password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 				return $conn;
