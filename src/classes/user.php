@@ -31,13 +31,13 @@
 
 		private function select_user(){
 			try{
-				$stmt = ($this->connect())->prepare("SELECT username FROM users WHERE username = :username AND password = :password");
+				$stmt = ($this->connect())->prepare("SELECT userid, username FROM users WHERE username = :username AND password = :password");
 				$stmt->bindParam(':username', $this->username);
 				$stmt->bindParam(':password', $this->password);
 
 				$stmt->execute();
 
-				$user = $stmt->fetch(PDO::FETCH_ASSOC);
+				$user = $stmt->fetch();
 				return $user;
 			}
 			catch(PDOException $e){
@@ -49,6 +49,7 @@
 			$user = $this->select_user();
 			if($user){
 				session_start();
+				$_SESSION['login_userid'] = $user['userid'];
 				$_SESSION['login_username'] = $user['username'];
 				header("location: " . $page);
 			}
