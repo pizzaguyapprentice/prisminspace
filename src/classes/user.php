@@ -2,7 +2,6 @@
 	include "../classes/database.php";
 
 	class User extends Database{
-		
 		private $firstname;
 		private $username;
 		private $password;
@@ -32,7 +31,7 @@
 
 		private function select_user(){
 			try{
-				$stmt = ($this->connect())->prepare("SELECT userid, username FROM users WHERE username = :username AND password = :password");
+				$stmt = ($this->connect())->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
 				$stmt->bindParam(':username', $this->username);
 				$stmt->bindParam(':password', $this->password);
 
@@ -50,6 +49,7 @@
 			$user = $this->select_user();
 			if($user){
 				session_start();
+				$_SESSION['user'] = $user;
 				$_SESSION['login_userid'] = $user['userid'];
 				$_SESSION['login_username'] = $user['username'];
 				header("location: " . $page);
