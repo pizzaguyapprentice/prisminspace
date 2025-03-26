@@ -1,7 +1,6 @@
 <?php
 include "../navbar/navbar.php";
 
-// Check if receipt exists in session
 if(!isset($_SESSION['receipt'])) {
     header('Location: basket.php');
     exit();
@@ -28,10 +27,9 @@ $receipt = $_SESSION['receipt'];
                     <p>Your order has been confirmed and will be processed shortly.</p>
                     
                     <?php 
-                    // Display receipt
                     echo $receipt;
                     
-                    // Clear receipt from session
+      
                     unset($_SESSION['receipt']);
                     ?>
                     

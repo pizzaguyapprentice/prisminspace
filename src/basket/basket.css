@@ -64,7 +64,6 @@
     font-size: 1.2em;
 }
 
-/* Receipt Styles */
 .receipt {
     background: #fff;
     padding: 20px;
@@ -98,7 +97,6 @@
     background: #f9f9f9;
 }
 
-/* Form Styles */
 .address-form {
     background: #fff;
     padding: 20px;
@@ -120,7 +118,7 @@
     border: 1px solid #ddd;
 }
 
-/* Order Success */
+
 .order-success {
     text-align: center;
     padding: 20px;

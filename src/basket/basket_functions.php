@@ -1,132 +1,145 @@
 <?php
-// Simple database connection
-$conn = new mysqli('localhost', 'root', '123', 'prisminspacedb');
 
-// Function to get all products
+$servername = "localhost";
+$username = "root";
+$password = "123";
+$dbname = "prisminspacedb";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+ 
 function getProducts() {
     global $conn;
-    $sql = "SELECT * FROM products";
-    $result = mysqli_query($conn, $sql);
-    return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $stmt = $conn->prepare("SELECT * FROM products");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// Function to get userID from username
 function getUserId($username) {
     global $conn;
-    $sql = "SELECT userid FROM users WHERE username = '$username'";
-    $result = mysqli_query($conn, $sql);
-    $user = mysqli_fetch_assoc($result);
+    $stmt = $conn->prepare("SELECT userid FROM users WHERE username = :username");
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
     return $user ? $user['userid'] : null;
 }
 
-// Function to add item to session basket
 function addToBasket($productId) {
-    if(!isset($_SESSION['basket'])) {
-        $_SESSION['basket'] = array();
+    if (!isset($_SESSION['basket'])) {
+        $_SESSION['basket'] = [];
     }
-    
-    if(!in_array($productId, $_SESSION['basket'])) {
+
+    if (!in_array($productId, $_SESSION['basket'])) {
         $_SESSION['basket'][] = $productId;
-        
-        // Add to database if user is logged in
-        if(isset($_SESSION['login_username'])) {
+
+        if (isset($_SESSION['login_username'])) {
             global $conn;
             $userId = getUserId($_SESSION['login_username']);
-            if($userId) {
-                $sql = "INSERT INTO baskets (userid, productid) VALUES ($userId, $productId)";
-                mysqli_query($conn, $sql);
+            if ($userId) {
+                $stmt = $conn->prepare("INSERT INTO baskets (userid, productid) VALUES (:userid, :productid)");
+                $stmt->execute([':userid' => $userId, ':productid' => $productId]);
             }
         }
     }
 }
 
-// Function to remove item from session basket
 function removeFromBasket($productId) {
-    if(isset($_SESSION['basket'])) {
+    if (isset($_SESSION['basket'])) {
         $key = array_search($productId, $_SESSION['basket']);
-        if($key !== false) {
+        if ($key !== false) {
             unset($_SESSION['basket'][$key]);
-            $_SESSION['basket'] = array_values($_SESSION['basket']); // Reindex array
-            
-            // Remove from database if user is logged in
-            if(isset($_SESSION['login_username'])) {
+            $_SESSION['basket'] = array_values($_SESSION['basket']);
+
+            if (isset($_SESSION['login_username'])) {
                 global $conn;
                 $userId = getUserId($_SESSION['login_username']);
-                if($userId) {
-                    $sql = "DELETE FROM baskets WHERE userid = $userId AND productid = $productId";
-                    mysqli_query($conn, $sql);
+                if ($userId) {
+                    $stmt = $conn->prepare("DELETE FROM baskets WHERE userid = :userid AND productid = :productid");
+                    $stmt->execute([':userid' => $userId, ':productid' => $productId]);
                 }
             }
         }
     }
 }
 
-// Function to get items in basket
 function getBasketItems() {
     global $conn;
-    $items = array();
-    
-    if(isset($_SESSION['basket']) && !empty($_SESSION['basket'])) {
-        $ids = implode(',', $_SESSION['basket']);
-        $sql = "SELECT * FROM products WHERE productid IN ($ids)";
-        $result = mysqli_query($conn, $sql);
-        $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $items = [];
+
+    if (isset($_SESSION['basket']) && !empty($_SESSION['basket'])) {
+        $ids = implode(',', array_map('intval', $_SESSION['basket']));
+        $stmt = $conn->prepare("SELECT * FROM products WHERE productid IN ($ids)");
+        $stmt->execute();
+        $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
     return $items;
 }
 
-// Function to calculate total
 function calculateTotal($items) {
     $total = 0;
-    foreach($items as $item) {
+    foreach ($items as $item) {
         $total += $item['productprice'];
     }
     return $total;
 }
 
-// Function to save receipt
 function saveReceipt($userId, $items, $total) {
     global $conn;
-    
-    // Get current date
     $date = date('Y-m-d H:i:s');
-    
-    // Insert into orders first
-    foreach($items as $item) {
-        $sql = "INSERT INTO orders (date, userid, productid) VALUES ('$date', $userId, {$item['productid']})";
-        mysqli_query($conn, $sql);
-        $orderId = mysqli_insert_id($conn);
-        
-        // Then create receipt
-        $sql = "INSERT INTO receipts (userid, orderid, date, totalprice) 
-                VALUES ($userId, $orderId, '$date', $total)";
-        mysqli_query($conn, $sql);
+
+    try {
+        $conn->beginTransaction();
+
+        foreach ($items as $item) {
+            $stmt = $conn->prepare("INSERT INTO orders (date, userid, productid) VALUES (:date, :userid, :productid)");
+            $stmt->execute([
+                ':date' => $date,
+                ':userid' => $userId,
+                ':productid' => $item['productid']
+            ]);
+            $orderId = $conn->lastInsertId();
+
+            $stmt = $conn->prepare("INSERT INTO receipts (userid, orderid, date, totalprice) 
+                                    VALUES (:userid, :orderid, :date, :total)");
+            $stmt->execute([
+                ':userid' => $userId,
+                ':orderid' => $orderId,
+                ':date' => $date,
+                ':total' => $total
+            ]);
+        }
+
+        $conn->commit();
+        unset($_SESSION['basket']);
+    } catch (PDOException $e) {
+        $conn->rollBack();
+        echo("Error processing order: " . $e->getMessage());
     }
-    
-    // Clear session basket after purchase
-    unset($_SESSION['basket']);
 }
 
-// Function to print receipt
 function printReceipt($items, $total) {
     $receipt = "<div class='receipt'>";
     $receipt .= "<h3>Receipt</h3>";
     $receipt .= "<div class='receipt-items'>";
-    
-    foreach($items as $item) {
+
+    foreach ($items as $item) {
         $receipt .= "<div class='receipt-item'>";
-        $receipt .= "<span>{$item['productname']}</span>";
-        $receipt .= "<span>€{$item['productprice']}</span>";
+        $receipt .= "<span>" . htmlspecialchars($item['productname']) . "</span>";
+        $receipt .= "<span>€" . htmlspecialchars($item['productprice']) . "</span>";
         $receipt .= "</div>";
     }
-    
+
     $receipt .= "</div>";
     $receipt .= "<div class='receipt-total'>";
-    $receipt .= "<strong>Total: €$total</strong>";
+    $receipt .= "<strong>Total: €" . htmlspecialchars($total) . "</strong>";
     $receipt .= "</div>";
     $receipt .= "</div>";
-    
+
     return $receipt;
 }
 ?>
