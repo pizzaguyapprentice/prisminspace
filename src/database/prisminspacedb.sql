@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 23, 2025 at 05:07 PM
+-- Host: localhost
+-- Generation Time: Mar 26, 2025 at 12:23 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,13 +33,6 @@ CREATE TABLE `baskets` (
   `productid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `baskets`
---
-
-INSERT INTO `baskets` (`basketid`, `userid`, `productid`) VALUES
-(0, 20, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -50,35 +43,15 @@ CREATE TABLE `orders` (
   `orderid` int(11) NOT NULL,
   `date` datetime DEFAULT NULL,
   `userid` int(11) DEFAULT NULL,
-  `productid` int(11) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `city` varchar(100) DEFAULT NULL,
-  `postcode` varchar(20) DEFAULT NULL
+  `productid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`orderid`, `date`, `userid`, `productid`, `address`, `city`, `postcode`) VALUES
-(1, '2025-03-23 16:48:12', 20, 1, NULL, NULL, NULL),
-(2, '2025-03-23 16:48:12', 20, 2, NULL, NULL, NULL),
-(3, '2025-03-23 16:48:12', 20, 3, NULL, NULL, NULL),
-(4, '2025-03-23 16:48:12', 20, 4, NULL, NULL, NULL),
-(5, '2025-03-23 16:51:14', 20, 1, NULL, NULL, NULL),
-(6, '2025-03-23 16:51:14', 20, 2, NULL, NULL, NULL),
-(7, '2025-03-23 16:51:14', 20, 3, NULL, NULL, NULL),
-(8, '2025-03-23 16:51:14', 20, 4, NULL, NULL, NULL),
-(9, '2025-03-23 16:51:20', 20, 2, NULL, NULL, NULL),
-(10, '2025-03-23 16:51:20', 20, 3, NULL, NULL, NULL),
-(11, '2025-03-23 17:03:34', 20, 1, '135 Churchfields', 'Ashbourne', 'A84 AP03'),
-(12, '2025-03-23 17:03:34', 20, 2, '135 Churchfields', 'Ashbourne', 'A84 AP03'),
-(13, '2025-03-23 17:03:34', 20, 3, '135 Churchfields', 'Ashbourne', 'A84 AP03'),
-(14, '2025-03-23 17:03:34', 20, 4, '135 Churchfields', 'Ashbourne', 'A84 AP03'),
-(15, '2025-03-23 17:06:15', 20, 1, 'dd', 'dd', 'ddd'),
-(16, '2025-03-23 17:06:15', 20, 2, 'dd', 'dd', 'ddd'),
-(17, '2025-03-23 17:06:15', 20, 3, 'dd', 'dd', 'ddd'),
-(18, '2025-03-23 17:06:15', 20, 4, 'dd', 'dd', 'ddd');
+INSERT INTO `orders` (`orderid`, `date`, `userid`, `productid`) VALUES
+(1, '2025-03-26 10:23:23', 15, 4);
 
 -- --------------------------------------------------------
 
@@ -115,7 +88,6 @@ INSERT INTO `products` (`productid`, `productname`, `productprice`, `productamou
 
 CREATE TABLE `receipts` (
   `receiptid` int(11) NOT NULL,
-  `userid` int(11) NOT NULL,
   `orderid` int(11) NOT NULL,
   `date` datetime NOT NULL,
   `totalprice` double NOT NULL
@@ -125,25 +97,8 @@ CREATE TABLE `receipts` (
 -- Dumping data for table `receipts`
 --
 
-INSERT INTO `receipts` (`receiptid`, `userid`, `orderid`, `date`, `totalprice`) VALUES
-(1, 20, 1, '2025-03-23 16:48:12', 115),
-(2, 20, 2, '2025-03-23 16:48:12', 115),
-(3, 20, 3, '2025-03-23 16:48:12', 115),
-(4, 20, 4, '2025-03-23 16:48:12', 115),
-(5, 20, 5, '2025-03-23 16:51:14', 115),
-(6, 20, 6, '2025-03-23 16:51:14', 115),
-(7, 20, 7, '2025-03-23 16:51:14', 115),
-(8, 20, 8, '2025-03-23 16:51:14', 115),
-(9, 20, 9, '2025-03-23 16:51:20', 40),
-(10, 20, 10, '2025-03-23 16:51:20', 40),
-(11, 20, 11, '2025-03-23 17:03:34', 115),
-(12, 20, 12, '2025-03-23 17:03:34', 115),
-(13, 20, 13, '2025-03-23 17:03:34', 115),
-(14, 20, 14, '2025-03-23 17:03:34', 115),
-(15, 20, 15, '2025-03-23 17:06:15', 115),
-(16, 20, 16, '2025-03-23 17:06:15', 115),
-(17, 20, 17, '2025-03-23 17:06:15', 115),
-(18, 20, 18, '2025-03-23 17:06:15', 115);
+INSERT INTO `receipts` (`receiptid`, `orderid`, `date`, `totalprice`) VALUES
+(1, 1, '2025-03-26 11:24:25', 25);
 
 -- --------------------------------------------------------
 
@@ -195,11 +150,11 @@ INSERT INTO `users` (`userid`, `firstname`, `username`, `password`, `profilepict
 (12, '', '', '', ''),
 (13, '', '', '', ''),
 (14, '', '', '', ''),
-(15, 'test', 'test', 'test', ''),
+(15, 'test', 'test', 'test', 'user_test_1742983830.png'),
 (16, 'ethan', 'ethan', '123', ''),
 (17, 'mati', 'mati123', '123', ''),
 (18, 'qwe', 'qwe', 'qwe', 'user_qwe_1742593747.png'),
-(20, 'dddd', 'ddd', 'ddd', 'N/A');
+(20, 'mati', 'mati', '123', 'N/A');
 
 --
 -- Indexes for dumped tables
@@ -233,7 +188,6 @@ ALTER TABLE `products`
 --
 ALTER TABLE `receipts`
   ADD PRIMARY KEY (`receiptid`),
-  ADD KEY `userid` (`userid`),
   ADD KEY `orderid` (`orderid`);
 
 --
@@ -266,7 +220,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -278,7 +232,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `receipts`
 --
 ALTER TABLE `receipts`
-  MODIFY `receiptid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `receiptid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `refunds`
@@ -320,8 +274,7 @@ ALTER TABLE `orders`
 -- Constraints for table `receipts`
 --
 ALTER TABLE `receipts`
-  ADD CONSTRAINT `receipts_ibfk_1` FOREIGN KEY (`orderid`) REFERENCES `orders` (`orderid`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `receipts_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `users` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `receipts_ibfk_1` FOREIGN KEY (`orderid`) REFERENCES `orders` (`orderid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `refunds`
