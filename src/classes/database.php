@@ -2,10 +2,10 @@
 	include "../classes/credentials.php";
 
 	class Database{
-		private static $db_address = "localhost";
-		private static $db_username = "root";
-		private static $db_password = "123";
-		private static $db_name = "prisminspacedb";
+		public static $db_address = "localhost";
+		public static $db_username = "root";
+		public static $db_password = "123";
+		public static $db_name = "prisminspacedb";
 
 		public static function connect(){
 			try{

@@ -46,6 +46,10 @@
 			<input type="submit" name="upload" value="Upload picture">
 		</form>
 
+		<form method="post" action="fetchreceipts.php" >
+			<input type="submit" name="fetchreceipts" value="Show transation history">
+		</form>
+
 		<form method="POST">
 			<input type="submit" name="delete" value="Delete account">
 		</form>
