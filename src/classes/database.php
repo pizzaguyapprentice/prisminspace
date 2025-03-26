@@ -1,6 +1,4 @@
 <?php
-	include "../classes/credentials.php";
-
 	class Database{
 		public static $db_address = "localhost";
 		public static $db_username = "root";
@@ -11,7 +9,7 @@
 			try{
 				$conn = new PDO("mysql:host=" . Database::$db_address . ";dbname=" . Database::$db_name, Database::$db_username, Database::$db_password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				//$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+				$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 				return $conn;
 				/*$stmt = $conn->prepare("SELECT username FROM users WHERE username = :username AND password = :password");
