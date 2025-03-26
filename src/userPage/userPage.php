@@ -22,6 +22,8 @@
 				$_SESSION['login_username'] = 'an';
 			}
 
+			echo "<p>Hello " . $_SESSION['user']['username'] . ", Welcome To Your User Page.</p>";
+
 			$servername = "localhost";
 			$username = "root";
 			$password = "123";
