@@ -8,12 +8,6 @@
 		private $profilepicture;
 
 		public function __construct($firstname, $username, $password, $profilepicture){
-			$db = new Credentials();
-			$this->db_address = $db->get_db_address();
-			$this->db_username = $db->get_db_username();
-			$this->db_password = $db->get_db_password();
-			$this->db_name = $db->get_db_name();
-			
 			$this->firstname = $firstname;
 			$this->username = $username;
 			$this->password = $password;
