@@ -24,13 +24,13 @@
 			$this->productimage = $productimage;
 		}*/
 
-		public function __construct(){
+		/*public function __construct(){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
 			$this->db_password = $db->get_db_password();
 			$this->db_name = $db->get_db_name();
-		}
+		}*/
 
 		public function select_all_products(){
 			try{
