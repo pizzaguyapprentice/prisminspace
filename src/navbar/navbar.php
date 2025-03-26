@@ -6,13 +6,12 @@
 	<div id="logo-small" class="navbar-item">
 		<img src="../img/logo.png" class="" alt="small logo prisminspace">
 	</div>
+	
 	<!-- menubar, will be responsive based on viewport -->
 	<div id="menu-bar" class="navbar-item">
-
-
-		<form class="menu-item" id="search" method="post" action="../products/products.php">
+		<form class="menu-item" id="search" method="get" action="../products/products.php" >
 			<input type="submit" hidden />
-			<input class="menu-item" id="searchbar" type="text" placeholder="Search here..." cols="5">
+			<input class="menu-item" id="searchbar" type="text" placeholder="Search here..." cols="5" name="query">
 			<div id="filterholder">
 				<select name="filter" id="filter">
 					<option value="productname">Name</option>

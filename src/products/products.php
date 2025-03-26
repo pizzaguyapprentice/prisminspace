@@ -2,6 +2,7 @@
 
 <html lang="en">
     <head>
+
         <title>prisminspace</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,7 +37,20 @@
 					
 					<!-- Singular Card Container that holds-->
 					<?php 
-						include("fetchproducts.php");
+
+                        if (isset($_GET['query']) || isset($_GET['filter'])) {
+
+                            include("./filteredfetchproducts.php");
+
+                            echo "User came through search/filter.";
+
+                        } else {
+
+                            include("./fetchproducts.php");
+
+                            echo "User came through direct navigation.";
+                        }
+						//include("fetchproducts.php");
 					?>
             	</div>
 			</div>
