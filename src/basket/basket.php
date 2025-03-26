@@ -92,7 +92,7 @@ $total = calculateTotal($basketItems);
                     <a href="confirm_order.php" class="checkout-btn" style="display: block; text-align: center; text-decoration: none;">Proceed to Checkout</a>
                 </div>
             <?php endif; ?>
-        </div>
+          </div>
     </div>
 
     <?php include "../footer/footer.php"; ?>
