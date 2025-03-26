@@ -22,19 +22,23 @@ if (!isset($_SESSION["login_username"])) {
 $login_username = $_SESSION["login_username"]; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profilepicture'])) {
-
     $file = $_FILES['profilepicture'];
     $directory = 'userprofiles/';
-
     $fileExt = pathinfo($file['name'], PATHINFO_EXTENSION);
     
     $newfilename = "user_" . $login_username . "_" . time() . "." . $fileExt;
 
     $targetpath = $directory . $newfilename;
-    
+	echo $targetpath;
+	echo "<br>";
+	//echo $file['tmp_name'];
+	echo is_dir($directory);
+
 
     if (move_uploaded_file($file['tmp_name'], $targetpath)) {
         try {
+			echo 3;
+
             $stmt = $pdo->prepare("UPDATE users SET profilepicture = :profilepicture WHERE username = :login_username");
             $stmt->execute([
                 'profilepicture' => $newfilename,
