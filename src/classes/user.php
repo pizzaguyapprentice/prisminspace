@@ -2,6 +2,7 @@
 	include "../classes/database.php";
 
 	class User extends Database{
+		
 		private $firstname;
 		private $username;
 		private $password;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 26, 2025 at 12:23 PM
+-- Generation Time: Mar 26, 2025 at 12:56 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,7 +51,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`orderid`, `date`, `userid`, `productid`) VALUES
-(1, '2025-03-26 10:23:23', 15, 4);
+(1, '2025-03-26 10:23:23', 15, 4),
+(2, '2025-03-26 11:49:17', 15, 3);
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,8 @@ CREATE TABLE `receipts` (
 --
 
 INSERT INTO `receipts` (`receiptid`, `orderid`, `date`, `totalprice`) VALUES
-(1, 1, '2025-03-26 11:24:25', 25);
+(1, 1, '2025-03-26 11:24:25', 25),
+(2, 2, '2025-03-26 12:49:50', 11);
 
 -- --------------------------------------------------------
 
@@ -220,7 +222,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -232,7 +234,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `receipts`
 --
 ALTER TABLE `receipts`
-  MODIFY `receiptid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `receiptid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `refunds`
