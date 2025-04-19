@@ -12,20 +12,20 @@
 ?>
 
 <html lang="en">
-    <head>
-        <link rel="icon" href="placeholderlogo.svg">
-        <title>prisminspace</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel ="stylesheet" href="../main.css">
-        <link rel="stylesheet" href="login.css">
-        <!-- <link rel="stylesheet" href="./output.css"> -->
-    </head>
+
+    <!-- Header above all links -->
+    <?php
+        include("../onload/header.php");
+    ?>
+
+	<!-- Links based on site -->
+	<link rel ="stylesheet" href="../main.css">
+	<link rel="stylesheet" href="login.css">
 
     <body>
 
 		<?php
-			include "../navbar/navbar.php";		
+			include "../onload/navbar.php";		
 		?>
 
         <div class="main">
@@ -62,7 +62,7 @@
         </div>
 
         <?php
-			include "../footer/footer.php";
+			include "../onload/footer.php";
 		?>
        
     </body>

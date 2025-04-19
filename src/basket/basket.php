@@ -51,7 +51,7 @@ $total = calculateTotal($basketItems);
     <link rel="stylesheet" href="basket.css">
 </head>
 <body>
-    <?php include "../navbar/navbar.php"; ?>
+    <?php include "../onload/navbar.php"; ?>
 
     <div class="main">
         <div class="cardholder">
@@ -95,6 +95,6 @@ $total = calculateTotal($basketItems);
           </div>
     </div>
 
-    <?php include "../footer/footer.php"; ?>
+    <?php include "../onload/footer.php"; ?>
 </body>
 </html>

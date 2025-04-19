@@ -11,6 +11,9 @@
 html{
 	background-color: #d32836;
 }
+/*Above is for a header file*/
+
+/* BELOW IF FOR THE MAIN*/
 
 .main{
     display:flex;

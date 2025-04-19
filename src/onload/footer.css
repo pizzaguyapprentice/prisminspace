@@ -1,0 +1,67 @@
+@font-face {
+	font-family: metallord;
+	src: url(../fonts/metallord.otf);
+}
+
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+html{
+	background-color: #d32836;
+}
+
+.copyright {
+	display: flex;
+	align-items: center;
+	margin-left: 3vw;
+}
+  
+.largelogo {
+	width:100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer{
+	display:flex;
+	background-color: #d32836;
+	height:25vh;
+	align-items: center;
+	position: relative;
+	justify-content: space-between;
+}
+
+.logotext{
+	font-size: 8vw;
+	font-family: metallord;
+	color:#302d6a;
+}
+.socials{
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	margin-right:3vw;
+}
+.socialstitle{
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+}
+.socialsfooter{
+	margin-top: 1vh;
+	margin-bottom: 1vh;
+}
+.thelist{
+	list-style: none;
+	display:flex;
+
+}
+.thelist img{
+	margin-left:0.8vw;
+	margin-right:0.8vw;
+	width:72px;
+	height:fit-content;
+}

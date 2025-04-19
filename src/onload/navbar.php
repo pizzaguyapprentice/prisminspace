@@ -1,7 +1,7 @@
 
 <!-- navbar is sticky -->
 <div class="navbar">
-	<link rel ="stylesheet" href="../navbar/navbar.css?v=<?php echo time();?>">
+	<link rel ="stylesheet" href="../onload/navbar.css?v=<?php echo time();?>">
 	<!-- navbar contains the entirety of the items below -->
 	<div id="logo-small" class="navbar-item">
 		<img src="../img/logo.png" class="" alt="small logo prisminspace">
@@ -10,7 +10,7 @@
 	<!-- menubar, will be responsive based on viewport -->
 	<div id="menu-bar" class="navbar-item">
 		<form class="menu-item" id="search" method="get" action="../products/products.php" >
-			<input type="submit" hidden />
+			<input type="submit" hidden/>
 			<input class="menu-item" id="searchbar" type="text" placeholder="Search here..." cols="5" name="query">
 			<div id="filterholder">
 				<select name="filter" id="filter">
@@ -49,7 +49,7 @@
 			session_start();
 			//unset($_SESSION['login_username']);
 			if(($_SESSION['login_username'] ?? "an") == "an"){
-				echo "<div class='user-item'><p>Welcome, [USERNAME]!</p></div>";
+				echo "<div class='user-item'><p>Welcome, guest!</p></div>";
 			}
 			else{
 				echo "<div class='user-item'><p>Welcome, ";
@@ -93,18 +93,18 @@
 			$profilepicture = !empty($user['profilepicture']) ? $user['profilepicture'] : 'usericon.svg';
 
 			// Ensure file exists in server's filesystem
-			if (!file_exists("$rootdir/userPage/userprofiles/$profilepicture")) {
+			if (!file_exists("$rootdir/userpage/userprofiles/$profilepicture")) {
 				$profilepicture = 'usericon.svg';
 			}
 
-			$imgpath = "/userPage/userprofiles/" . htmlspecialchars($profilepicture);
+			$imgpath = "/userpage/userprofiles/" . htmlspecialchars($profilepicture);
 
 			if($login_username == "an") {
 				echo "<a href='../login/login.php'>
 					<img src='$imgpath' alt='User Login Icon' width='64'>
 				</a>";
 			}else{
-				echo "<a href='../userPage/userPage.php'>
+				echo "<a href='../userpage/userpage.php'>
 					<img src='$imgpath' alt='User Login Icon' width='64'>
 				</a>";
 			}

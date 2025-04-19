@@ -1,7 +1,9 @@
 <?php
+include("../onload/header.php");
+
 require_once 'basket_functions.php';
 
-include "../navbar/navbar.php";
+include "../onload/navbar.php";
 
 if (!isset($_SESSION['login_username'])) {
     header('Location: ../login/login.php');
@@ -164,6 +166,6 @@ $total = calculateTotal($basketItems);
         </div>
     </div>
 
-    <?php include "../footer/footer.php"; ?>
+    <?php include "../onload/footer.php"; ?>
 </body>
 </html>

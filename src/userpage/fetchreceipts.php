@@ -49,7 +49,7 @@ try {
 
             
         }
-        echo "Go back to <a href='userPage.php'>userpage</a>";
+        echo "Go back to <a href='userpage.php'>userpage</a>";
     }
 
 } catch (PDOException $e) {

@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="icon" href="placeholderlogo.svg">
-        <title>prisminspace</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel ="stylesheet" href="../main.css">
-        <link rel="stylesheet" href="registered.css">
-        <!-- <link rel="stylesheet" href="./output.css"> -->
-    </head>
+
+	<!-- Header above all links -->
+	<?php
+        include("../onload/header.php");
+    ?>
+
+	<link rel ="stylesheet" href="../main.css">
+	<link rel="stylesheet" href="registered.css">
 
 	<body>
 		<?php
-			include "../navbar/navbar.php";	
+			include "../onload/navbar.php";	
 		?>
 		<br>
 		
@@ -61,9 +60,9 @@
 		</form>
 		
 
-		<?php 
-		
-		?>
+		<?php
+            include("../onload/footer.php");
+        ?>
 	</body>
 
 </html>

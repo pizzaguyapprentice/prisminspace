@@ -1,5 +1,5 @@
 <?php
-include "../navbar/navbar.php";
+include "../onload/navbar.php";
 
 if(!isset($_SESSION['receipt'])) {
     header('Location: basket.php');
@@ -11,14 +11,14 @@ $receipt = $_SESSION['receipt'];
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="icon" href="../img/placeholderlogo.svg">
-        <title>Order Confirmed - prisminspace</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../main.css">
-        <link rel="stylesheet" href="basket.css">
-    </head>
+
+    <?php
+        include("../onload/header.php");
+    ?>
+
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="basket.css">
+
     <body>
         <div class="main">
             <div class="cardholder">
@@ -38,6 +38,6 @@ $receipt = $_SESSION['receipt'];
             </div>
         </div>
 
-        <?php include "../footer/footer.php"; ?>
+        <?php include "../onload/footer.php"; ?>
     </body>
 </html>

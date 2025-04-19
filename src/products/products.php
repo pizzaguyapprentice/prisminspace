@@ -1,26 +1,17 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
+    <?php
+        include("../onload/header.php");
+    ?>
 
-        <title>prisminspace</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel ="stylesheet" href="products.css?v=<?php echo time(); ?>">
-
-		<style> 
-            #grained{
-                pointer-events: none;
-				isolation: isolate;
-            }
-    	</style>
-    </head>
+    <link rel ="stylesheet" href="products.css?v=<?php echo time(); ?>">
 
     <body>
 
         <!-- Navbar enabled-->
         <?php
-            include("../navbar/navbar.php");
+            include("../onload/navbar.php");
         ?>
 
 		<!-- Has to be above body for grained to be enabled -->
@@ -56,7 +47,7 @@
 			</div>
         </div>
         <?php
-            include("../footer/footer.php");
+            include("../onload/footer.php");
         ?>
     </body>
 
