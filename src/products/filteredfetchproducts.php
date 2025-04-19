@@ -37,45 +37,9 @@ try {
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     foreach ($results as $row) {
-        echo "<div class='card'>
-                <div class='card-border'>
-
-                    <div class='product-image'>
-                        <img src='../img/placeholderlogo.svg' alt='shopping item' >
-                    </div>
-
-                    <div class='product-details'>
-
-                        <div class='product-name'>
-                            <p>" . htmlspecialchars($row['productname'], ENT_QUOTES, 'UTF-8') . "</p>
-                        </div>
-
-                        <div class='product-description'>
-                            <p>Description: " . htmlspecialchars($row['productdesc'], ENT_QUOTES, 'UTF-8') . "</p>
-                        </div>
-
-                        <div class='product-size'>
-                            <p>Size: " . htmlspecialchars($row['productsize'], ENT_QUOTES, 'UTF-8') . "</p>
-                        </div>
-
-                        <div class='product-price'>
-                            <p>Price: " . htmlspecialchars($row['productprice'], ENT_QUOTES, 'UTF-8') . "</p>
-                        </div>
-
-                        <div class='basket-options'>
-                            <div class='addtobasket'>
-                                <button>Add To Basket</button>
-                            </div>
-
-                            <div class='isinbasket'>
-                                <button>Remove from basket</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-              </div>";
+        include('productcard.php');
     }
+    
 } catch (PDOException $e) {
     echo "Womp womp: " . $e->getMessage();
 }
