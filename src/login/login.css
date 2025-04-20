@@ -14,3 +14,76 @@
     justify-content: center;
     text-align: center;
 }
+.main{
+    display:flex;
+    background-color:  #302d6a  ;
+}
+
+.main-background{   
+    margin-right:7vw;
+    margin-left:7vw;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image: url(../img/horseman.jpg);
+    justify-content: center;
+    width:100%;
+    padding-top:10vh;
+    padding-bottom:10vh;
+    display:flex;
+    align-items: center;
+}
+
+@font-face {
+	font-family: metallord;
+	src: url(../fonts/metallord.otf);
+}
+
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.cardholder{
+    margin-top: 5vh;
+    display:flex;
+    justify-content: center;
+    height:fit-content;
+    position:relative;
+    width:auto;
+    margin:50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.card{
+    align-items: center;
+    justify-content: center;
+    margin:1vw;
+    padding:1vw;
+    width:30vw;
+    height:35vh;
+    border:5px solid #302d6a;
+    border-radius:5% 0 5% 0;
+    background-color: #d32836;
+    display:flex;
+}
+.card-border{
+    width:fit-content;
+    height:fit-content;
+
+    border:5px solid #302d6a;
+    border-radius:0 5% 0 5%;
+    background-color: #302d6a;
+    color:white;
+    flex-direction: column;
+
+    display:flex;
+}
+
+input, a{
+    pointer-events: auto;
+}
+
