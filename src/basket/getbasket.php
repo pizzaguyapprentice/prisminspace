@@ -28,6 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
+if (isset($_POST['buy_now'])) {
+    getbasket($_POST['productid']);
+    header("Location: ../basket/confirm_order.php");
+    exit();
+}
+
 
 
 
@@ -40,15 +46,13 @@ function getbasket($productId) {
     if (!in_array($productId, $_SESSION['basket'])) {
         $_SESSION['basket'][] = $productId;
 
-        if (isset($_SESSION['login_username'])) {
-            global $conn;
-            $userId = getUserId($_SESSION['login_username']);
-            if ($userId) {
-                $stmt = $conn->prepare("INSERT INTO baskets (userid, productid) VALUES (:userid, :productid)");
-                $stmt->execute([':userid' => $userId, ':productid' => $productId]);
-            }
+       if (isset($_SESSION['login_username'])) {
+    global $conn, $userID;
+    $stmt = $conn->prepare("INSERT INTO baskets (userid, productid) VALUES (:userid, :productid)");
+    $stmt->execute([':userid' => $userID, ':productid' => $productId]);
+}
         }
-    }
+
 
 
 

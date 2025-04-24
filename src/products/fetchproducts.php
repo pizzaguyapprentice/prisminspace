@@ -7,6 +7,7 @@ try {
 
     while ($row = $stmt->fetch()) {
         include('productcard.php');
+        echo $row['productid'];
     }
 } catch (PDOException $e) {
     echo "Womp womp: " . $e->getMessage();

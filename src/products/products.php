@@ -5,6 +5,7 @@
         include("../onload/header.php");
     ?>
 
+
     <link rel ="stylesheet" href="products.css?v=<?php echo time(); ?>">
 
     <body>
@@ -12,6 +13,9 @@
         <!-- Navbar enabled-->
         <?php
             include("../onload/navbar.php");
+        ?>
+        <?php
+            include("../basket/getbasket.php");
         ?>
 
 		<!-- Has to be above body for grained to be enabled -->

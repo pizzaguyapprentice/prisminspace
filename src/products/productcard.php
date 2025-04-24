@@ -1,3 +1,4 @@
+
 <div class='card'>
     <div class='card-border'>
 
@@ -10,8 +11,7 @@
             <div class='product-name'>
                 <p><?php echo "{$row['productname']}" ?></p>
             </div>
-
-            <form>
+            <form method = "POST">
                 <?php $product_id = $row['productid']; ?>
                 <div class='useroptions'>
                     <div class='product-size'>
@@ -42,17 +42,31 @@
                 
 
                 <div class='basket-options'>
-                    <div class='addtobasket'>
-                        <button class="addtobasketbutton"><img src="../img/addtoshoppingbasket.svg"></button>
+                    <div class='add_to_basket'>
+
+                        <input type = "submit" name = "add_to_basket" value = "Add to Basket" class = "add-btn">
+                        <input type = "hidden" name = "productid" value = "<?php echo $row['productid'] ?>" class = "productid">
                     </div>
 
-                    <div class="buynow">
-                        <button class="buynowbutton">Buy now!</button>
+                    <div class="buynowbutton">
+
+                        <input type = "hidden" name = "productid" value = "<?php echo $row['productid'] ?>" class = "productid">
+                        <input type = "submit" name = "buy_now" value = "Buy now!" class = "buynowbutton">
                     </div>
                 </div>
             </form>
+
 
         </div>
 
     </div>
 </div>
+<?php
+
+
+if (isset($_SESSION['basket']) && in_array($row['productid'], $_SESSION['basket'])):
+    if (isset($_POST['add_to_basket'])) {
+        getbasket($_POST['productid']);
+
+    } endif;
+?>
