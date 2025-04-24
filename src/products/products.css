@@ -170,44 +170,66 @@
 .radioitem:checked + label {
     opacity: 1;
 }
-.add_to_basket button{
-    padding:1px;
-    font-weight: bold;
-    background-color: none;
+
+.addtobasketholder{
+    display:flex;
+    align-items: center;
 }
 
-.add_to_basket button img{
-    width: 48px;
-    height: 48px;
-}
-.add_to_basket input{
-    border: none;
+.addtobasketbutton{
     background: none;
+    border: none;
+    outline: none;
+
+    background-color: none;
+    display:flex;
+
+    background-image: url("../img/addtoshoppingbasket.svg");
+    width:64px;
+    height:64px;
     pointer-events: auto;
-    margin: 0;
-    padding: 0;
+
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-.buynowbutton{
-    background-color: white;
+.addtobasketbutton:hover{
+    filter: brightness(1) invert(1);
+}
+.buynowbuttonholder{
+    border:none;
+
     font-size: 1.4rem;
     font-weight: bold;
     border: none;
-    padding:1vw;
-    border-radius: 25px;
+
     position: relative;
     z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 .buynowbutton:hover {
     background-color: black;
     color: white;
 }
-.buynowbutton input{
+.buynowbutton{
+    display:flex;
+    height:100%;
+    width:100%;
+    font-size: 1.4rem;
+    font-weight: bold;
     border: none;
-    background: none;
+    border-radius: 25px;
+    position: relative;
+    z-index: 4;
     pointer-events: auto;
     margin: 0;
-    padding: 0;
+    padding:1vw;
+    background-color: white;
+
 }
 
 

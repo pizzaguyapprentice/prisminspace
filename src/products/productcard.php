@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="products.css?v=<?php echo time(); ?>">
 
 <div class='card'>
     <div class='card-border'>
@@ -42,13 +43,13 @@
                 
 
                 <div class='basket-options'>
-                    <div class='add_to_basket'>
 
-                        <input type = "submit" name = "add_to_basket" value = "Add to Basket" class = "add-btn">
+                    <div class='addtobasketholder'>
+                        <input type = "submit" name = "add_to_basket" value = "" class="addtobasketbutton">
                         <input type = "hidden" name = "productid" value = "<?php echo $row['productid'] ?>" class = "productid">
                     </div>
 
-                    <div class="buynowbutton">
+                    <div class="buynowbuttonholder">
 
                         <input type = "hidden" name = "productid" value = "<?php echo $row['productid'] ?>" class = "productid">
                         <input type = "submit" name = "buy_now" value = "Buy now!" class = "buynowbutton">
