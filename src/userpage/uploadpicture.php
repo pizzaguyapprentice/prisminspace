@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profilepicture'])) {
 			echo 3;
 
             $stmt = $pdo->prepare("UPDATE users SET profilepicture = :profilepicture WHERE username = :login_username");
+            
             $stmt->execute([
                 'profilepicture' => $newfilename,
                 'login_username' => $login_username

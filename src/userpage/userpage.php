@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+	
+	<link rel="stylesheet" href="userpagestyle.css?v=<?php echo time(); ?>">
 
 	<!-- Header above all links -->
 	<?php
         include("../onload/header.php");
     ?>
-
-	<link rel ="stylesheet" href="../main.css">
-	<link rel="stylesheet" href="registered.css">
-
+	
 	<body>
 		<?php
 			include "../onload/navbar.php";	
@@ -21,7 +20,7 @@
 				$_SESSION['login_username'] = 'an';
 			}
 
-			echo "<p>Hello " . $_SESSION['user']['username'] . ", Welcome To Your User Page.</p>";
+			//echo "<p>Hello " . $_SESSION['user']['username'] . ", Welcome To Your User Page.</p>";
 
 			$servername = "localhost";
 			$username = "root";
@@ -42,24 +41,62 @@
 			}
 		?>
 
-		<form method="post" action="uploadpicture.php" enctype="multipart/form-data" >
-			<input type="file" name="profilepicture" accept="image/* required">
-			<input type="submit" name="upload" value="Upload picture">
-		</form>
 
-		<form method="post" action="fetchreceipts.php" >
-			<input type="submit" name="fetchreceipts" value="Show transation history">
-		</form>
+		<div class="userpanel">
 
-		<form method="POST">
-			<input type="submit" name="delete" value="Delete account">
-		</form>
+			<div class="userpaneltitle">
+				<h2> <?php echo $_SESSION['user']['username'] . ", welcome to your user page!";?> </h2>
+			</div>
 
-		<form method="POST">
-			<input type="submit" name="signout" value="Sign Out">
-		</form>
+			<div class="profilepicture">
+				<?php echo "<img src='$imgpath' alt='User Login Icon' width='128'>" ?>
+			</div>
+
+
+			<div class="userpanelitem">
+				<div class="itemborder">
+					<div class="details">
+						Change and customize your profile picture here:
+					</div>
+				
+					<form method="post" action="uploadpicture.php" enctype="multipart/form-data" >
+						<input type="file" name="profilepicture" accept="image/* required" class="browsebutton">
+						<input type="submit" name="upload" value="Upload picture" class="submitbutton">
+					</form>
+				</div>
+			</div>
+			<div class="userpanelitem">
+				<div class="itemborder">
+					<div class="details">
+						View your transaction history:
+					</div>
+					<form method="post" action="receipts.php" >
+						<input type="submit" name="receipts" value="Show transation history" class="submitbutton">
+					</form>
+				</div>
+			</div>
+			<div class="userpanelitem">
+				<div class="itemborder">
+					<div class="details">
+						Delete your account:
+					</div>
+					<form method="POST">
+						<input type="submit" name="delete" value="Delete account" class="submitbutton">
+					</form>
+				</div>
+			</div>
+			<div class="userpanelitem">
+				<div class="itemborder">
+					<div class="details">
+						Sign out:
+					</div>
+					<form method="POST">
+						<input type="submit" name="signout" value="Sign Out" class="submitbutton">
+					</form>
+				</div>
+			</div>
+		</div>
 		
-
 		<?php
             include("../onload/footer.php");
         ?>

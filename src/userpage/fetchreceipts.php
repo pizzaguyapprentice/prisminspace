@@ -43,13 +43,9 @@ try {
     } else {
         echo "<h2>Transaction History</h2>";
         foreach ($transactions as $row) {
-            echo "<p>Receipt no. {$row['receiptid']}<br>";
-            echo "Date: {$row['date']}<br>";
-            echo "Total Price: {$row['totalprice']}</p>";
-
-            
+            include ("./receiptscard.php");
         }
-        echo "Go back to <a href='userpage.php'>userpage</a>";
+        
     }
 
 } catch (PDOException $e) {
