@@ -1,7 +1,10 @@
 <?php
 require_once 'basket_functions.php';
 
-session_start();
+
+require_once "../onload/navbar.php";
+
+//require_once "getbasket.php";
 
 if (!isset($_SESSION['login_username'])) {
     header('Location: ../login/login.php');
@@ -51,7 +54,7 @@ $total = calculateTotal($basketItems);
     <link rel="stylesheet" href="basket.css">
 </head>
 <body>
-    <?php include "../onload/navbar.php"; ?>
+
 
     <div class="main">
         <div class="cardholder">

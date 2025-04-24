@@ -67,13 +67,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ]);
             $orderId = $conn->lastInsertId();
 
-            $stmt = $conn->prepare("INSERT INTO receipts (userid, orderid, date, totalprice) 
-                                    VALUES (:userid, :orderid, :date, :total)");
+            $stmt = $conn->prepare("INSERT INTO receipts (userid, orderid, date, totalprice)
+                        VALUES (:userid, :orderid, :date, :totalprice)");
             $stmt->execute([
                 ':userid' => $userID,
                 ':orderid' => $orderId,
                 ':date' => $date,
-                ':total' => $total
+                ':totalprice' => $total
+
             ]);
         }
 
