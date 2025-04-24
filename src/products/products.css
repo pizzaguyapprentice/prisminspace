@@ -14,6 +14,7 @@
 }
 
 .main-background{   
+    width:100%;
     margin-right:7vw;
     margin-left:7vw;
     background-attachment: fixed;
@@ -24,10 +25,6 @@
 }
 
 .cardholder{
-    display:flex;
-    flex-wrap: wrap;
-    margin:auto;
-    justify-content: center;
     height:fit-content;
     position:relative;
 }

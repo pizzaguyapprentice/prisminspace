@@ -33,13 +33,13 @@
 
                             include("./filteredfetchproducts.php");
 
-                            echo "User came through search/filter.";
+                            //echo "User came through search/filter.";
 
                         } else {
 
                             include("./fetchproducts.php");
 
-                            echo "User came through direct navigation.";
+                            //echo "User came through direct navigation.";
                         }
 						//include("fetchproducts.php");
 					?>
