@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-$products = getProducts();
-$basketItems = getBasketItems();
+$products = getBasketItems();
+$basketItems = $products;
 $total = calculateTotal($basketItems);
 ?>
 

@@ -66,14 +66,16 @@ function removeFromBasket($productId) {
     }
 }
 
+
 function getBasketItems() {
     global $conn;
     $items = [];
 
-    if (isset($_SESSION['basket']) && !empty($_SESSION['basket'])) {
-        $ids = implode(',', array_map('intval', $_SESSION['basket']));
-        $stmt = $conn->prepare("SELECT * FROM products WHERE productid IN ($ids)");
-        $stmt->execute();
+    if (isset($_SESSION['basket']) && is_array($_SESSION['basket']) && !empty($_SESSION['basket'])) {
+        // Use placeholders for a safer IN query
+        $placeholders = implode(',', array_fill(0, count($_SESSION['basket']), '?'));
+        $stmt = $conn->prepare("SELECT * FROM products WHERE productid IN ($placeholders)");
+        $stmt->execute($_SESSION['basket']);
         $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
