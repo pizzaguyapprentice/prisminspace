@@ -10,17 +10,18 @@
 
 html{
 	background-color: #d32836;
+    scroll-behavior: smooth;
 }
+
 /*Above is for a header file*/
 
 /* BELOW IF FOR THE MAIN*/
 
 .main{
-    display:flex;
     background-color:  #302d6a  ;
 }
 
-.main-background{   
+.main-background{
     margin-right:7vw;
     margin-left:7vw;
     background-attachment: fixed;
@@ -51,13 +52,14 @@ html{
     border-radius: 5vw;
     bottom:0;
 }
-.cardholder{
+.contentholder{
     display:flex;
     flex-wrap: wrap;
     margin:auto;
     justify-content: center;
     height:fit-content;
 }
+
 .paragraph{
     font-size:2.5rem;
     background-color: 236, 132, 148;
@@ -80,4 +82,41 @@ html{
 }
 #small-logo{
     font-family:metallord;
+}
+.downarrowholder{
+    width:100%;
+    height:fit-content;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.downarrowimage{
+    pointer-events: auto;
+    width:64px;
+    height:64px;
+    filter: brightness(0) invert(1);
+
+}
+#specialproductholder{
+    display:flex;
+    justify-content: center;
+}
+#specialtext{
+    display:flex;
+    justify-content: center;
+    scroll-margin-top: 40vh;
+    
+}
+.specialproduct{
+    text-decoration: none;
+    text-emphasis: none;
+    color:white;
+    font-family:metallord;
+    pointer-events: auto;
+
+}
+a{
+    text-decoration: none;
+    text-emphasis: none;
 }

@@ -24,7 +24,7 @@
             <div class="main-background" id="grained">
             
                 <!-- Is the background of where cards are situated-->
-                <div class="cardholder">
+                <div class="contentholder">
                     <div class="paragraph">
                         <div class="videoholder">
                             <h2 class="p-title">Welcome to: <span id="small-logo">PRISMINSPACE</span></h2>
@@ -37,6 +37,22 @@
                         <p class="p-text">
                             PRISMINSPACE is an alternative clothing brand blending grunge, cybercigilist, and goth aesthetics into distinctive, modern designs. Our pieces are made for those who move against the current—individuals drawn to bold silhouettes, dark tones, and unconventional style. Explore the collection and discover clothing that reflects your edge.
                         </p>
+                        <p class="p-text" id="specialproductholder">
+                            View our full&nbsp<a href="../products/products.php"><span class="specialproduct">products</span></a>&nbsprange.
+                        </p>
+                        <div class="downarrowholder">
+                            <a id="downarrowlink" href="#specialtext"><img src="../img/downarrow.svg" class="downarrowimage"></a>
+                        </div>
+                        <p class="p-text" id="specialtext">
+                            Shop the latest collection. Become something greater.
+                        </p>
+                        <div class="cardholder">
+                            <?php
+                                $newin = true;
+                                include("../products/fetchproducts.php");
+                                
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -48,6 +64,13 @@
         ?>
 
     </body>
+
+    <script>
+        document.getElementById('downarrowlink').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('specialtext').scrollIntoView({ behavior: 'smooth', block: 'center',});
+        });
+    </script>
     
     <!-- Has to be below body for grained to be enabled -->
     <script src="../grained-master/options.js">

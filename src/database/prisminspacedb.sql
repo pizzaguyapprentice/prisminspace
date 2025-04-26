@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2025 at 09:09 PM
+-- Generation Time: Apr 26, 2025 at 12:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,7 +44,11 @@ INSERT INTO `baskets` (`basketid`, `userid`, `productid`) VALUES
 (15, 21, 4),
 (17, 21, 3),
 (19, 21, 2),
-(20, 21, 2);
+(20, 21, 2),
+(31, 15, 4),
+(32, 15, 3),
+(33, 15, 1),
+(34, 15, 4);
 
 -- --------------------------------------------------------
 
@@ -78,7 +82,12 @@ INSERT INTO `orders` (`orderid`, `date`, `userid`, `productid`, `address`, `city
 (18, '2025-04-24 20:16:14', 21, 2, '135 Churchfields', 'Ashbourne', 'A84 AP03'),
 (19, '2025-04-24 20:16:14', 21, 4, '135 Churchfields', 'Ashbourne', 'A84 AP03'),
 (20, '2025-04-24 20:17:16', 21, 2, '135 Churchfields', 'Ashbourne', 'A84 AP03'),
-(21, '2025-04-24 20:17:16', 21, 3, '135 Churchfields', 'Ashbourne', 'A84 AP03');
+(21, '2025-04-24 20:17:16', 21, 3, '135 Churchfields', 'Ashbourne', 'A84 AP03'),
+(22, '2025-04-24 21:14:28', 15, 1, 'adad', 'adad', 'adad'),
+(23, '2025-04-24 21:14:28', 15, 3, 'adad', 'adad', 'adad'),
+(24, '2025-04-24 21:22:44', 15, 2, 'my house', 'dublin', 'adadad'),
+(25, '2025-04-24 23:03:56', 15, 3, 'asdsd', 'asda', 'ada'),
+(26, '2025-04-24 23:03:56', 15, 4, 'asdsd', 'asda', 'ada');
 
 -- --------------------------------------------------------
 
@@ -89,7 +98,7 @@ INSERT INTO `orders` (`orderid`, `date`, `userid`, `productid`, `address`, `city
 CREATE TABLE `products` (
   `productid` int(11) NOT NULL,
   `productname` varchar(45) DEFAULT NULL,
-  `productprice` int(11) DEFAULT NULL,
+  `productprice` float DEFAULT NULL,
   `productamount` int(11) DEFAULT NULL,
   `productimage` varchar(100) NOT NULL,
   `productdescription` longtext NOT NULL,
@@ -102,10 +111,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`productid`, `productname`, `productprice`, `productamount`, `productimage`, `productdescription`, `productsize`, `productcategory`) VALUES
-(1, 'test', 50, 11, 'testimage', '', '', ''),
-(2, 'test2', 11, 15, 'testimage2', '', '', ''),
-(3, 'T-Shirt Rich Cotton', 29, 11, '', '', '', ''),
-(4, 'T-Shirt Unique Design', 25, 16, '', '', '', '');
+(1, 'Tank Top Thorned Skull', 24.99, 15, 'tanktop-jesus.jpg', 'This is sample text for a description.', '', 'Tank Top'),
+(2, 'T-Shirt Drown and Wave', 28.99, 17, 'tshirt-drown.jpg', 'This is a sample description.', '', 'T-Shirt'),
+(3, 'Tank Top Horned Skull ', 31.5, 8, 'tanktop-skull.jpg', 'This is a sample description.', '', 'Tank Top'),
+(4, 'T-Shirt Aztec Ring', 19.5, 31, 'tshirt-skull.jpg', 'This is a sample description.', '', 'T-Shirt');
 
 -- --------------------------------------------------------
 
@@ -137,7 +146,12 @@ INSERT INTO `receipts` (`receiptid`, `orderid`, `date`, `totalprice`, `userid`) 
 (9, 18, '2025-04-24 20:16:14', 86, 21),
 (10, 19, '2025-04-24 20:16:14', 86, 21),
 (11, 20, '2025-04-24 20:17:16', 40, 21),
-(12, 21, '2025-04-24 20:17:16', 40, 21);
+(12, 21, '2025-04-24 20:17:16', 40, 21),
+(13, 22, '2025-04-24 21:14:28', 79, 15),
+(14, 23, '2025-04-24 21:14:28', 79, 15),
+(15, 24, '2025-04-24 21:22:44', 11, 15),
+(16, 25, '2025-04-24 23:03:56', 54, 15),
+(17, 26, '2025-04-24 23:03:56', 54, 15);
 
 -- --------------------------------------------------------
 
@@ -262,13 +276,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `baskets`
 --
 ALTER TABLE `baskets`
-  MODIFY `basketid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `basketid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -280,7 +294,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `receipts`
 --
 ALTER TABLE `receipts`
-  MODIFY `receiptid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `receiptid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `refunds`
