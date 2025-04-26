@@ -1,7 +1,8 @@
 <?php
-include("../onload/header.php");
 
 require_once 'basket_functions.php';
+
+include("../onload/header.php");
 
 include "../onload/navbar.php";
 

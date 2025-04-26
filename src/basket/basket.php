@@ -5,8 +5,6 @@ include "../onload/header.php";
 
 include "../onload/navbar.php";
 
-
-
 //require_once "getbasket.php";
 
 if (!isset($_SESSION['login_username'])) {

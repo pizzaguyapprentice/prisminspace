@@ -10,8 +10,9 @@
 		private $productdescription;
 		private $productsize;
 		private $productcategory;
-
-		/*function __construct($productname, $productprice, $productamount, $productimage){
+		
+		/*
+		function __construct($productname, $productprice, $productamount, $productimage,$productdescription,$productsize,$productcategory){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
@@ -22,7 +23,10 @@
 			$this->productprice = $productprice;
 			$this->productamount = $productamount;
 			$this->productimage = $productimage;
-		}*/
+			$this->productdescription = $productdescription;
+			$this->productsize = $productsize;
+			$this->productcategory = $productcategory;
+		}
 
 		/*public function __construct(){
 			$db = new Credentials();
