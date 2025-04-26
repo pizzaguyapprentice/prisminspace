@@ -18,6 +18,10 @@
         <?php
             include("../onload/navbar.php");
         ?>
+        
+         <?php
+            include("../basket/getbasket.php");
+        ?>
 
         <!-- Contains main body of content-->
         <div class="main">
