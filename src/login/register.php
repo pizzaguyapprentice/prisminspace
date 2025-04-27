@@ -13,7 +13,7 @@
 		include "../classes/user.php";
 		$message = "";
 
-		if(isset($_POST['register_firstname']) && isset($_POST['register_username']) && isset($_POST['register_password']) && isset($_POST['register_username']) && $_SERVER["REQUEST_METHOD"] == "POST"){
+		if(isset($_POST['register_firstname']) && isset($_POST['register_username']) && isset($_POST['register_password']) && isset($_POST['register_repeat_password']) && $_SERVER["REQUEST_METHOD"] == "POST"){
 			if(((strlen($_POST['register_username']) ?? 2) < 3)){
 				$message = "Username Must Be 3 Or More Characters";
 			}
