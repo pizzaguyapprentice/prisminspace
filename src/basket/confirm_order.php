@@ -58,6 +58,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors[] = "Invalid email format.";
         }
     }
+    if (empty($_POST['address'])) {
+        $errors[] = "Address is required.";
+    }
+    if (!preg_match("/^[a-zA-Z0-9]{7}$/", $_POST['postcode'])) {
+        $errors[] = "Postcode must be exactly 7 letters or numbers (alphanumeric).";
+    }
+    if (!preg_match("/^[a-zA-Z\s]+$/", $_POST['city'])) {
+        $errors[] = "City must contain only letters and spaces.";
+    }
+
 
     if (!empty($errors)) {
         foreach ($errors as $error) {
@@ -65,6 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         exit();
     }
+
+
 
     $basketItems = getBasketItems();
     $total = calculateTotal($basketItems);
@@ -123,8 +135,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         foreach ($basketItems as $item) {
             $receipt .= "<div class='receipt-item'>";
-            $receipt .= "<span>{$item['productname']}</span>";
-            $receipt .= "<span>€{$item['productprice']}</span>";
+            $receipt .= "<div><p>{$item['productname']}</p></span></div>";
+            $receipt .= "<div><p>€{$item['productprice']}</p></span></div>";
             $receipt .= "</div>";
         }
 
@@ -158,22 +170,25 @@ $total = calculateTotal($basketItems);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="basket.css">
+    <link rel="stylesheet" href="orderconf.css">
 </head>
 <body>
     <div class="main">
         <div class="cardholder">
-            <h2>Order Summary</h2>
-
-            <?php foreach ($basketItems as $item): ?>
-                <div class="basket-item">
-                    <span><?php echo htmlspecialchars($item['productname'], ENT_QUOTES, 'UTF-8'); ?></span>
-                    <span>€<?php echo htmlspecialchars($item['productprice'], ENT_QUOTES, 'UTF-8'); ?></span>
-                </div>
-            <?php endforeach; ?>
-            
-            <div class="total">
-                <strong>Total: €<?php echo htmlspecialchars($total, ENT_QUOTES, 'UTF-8'); ?></strong>
+            <div class ="order-summary">
+                <h1>Order Summary</h1>
             </div>
+
+            <div class="basket-items-list">
+                <?php foreach ($basketItems as $item): ?>
+                    <div class="basket-item">
+                        <div><p><?php echo htmlspecialchars($item['productname'], ENT_QUOTES, 'UTF-8'); ?></p></div>
+                        <div><p>€<?php echo htmlspecialchars($item['productprice'], ENT_QUOTES, 'UTF-8'); ?></p></div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            
+
             
             <form method="POST" class="address-form">
                 <h3>Shipping Address</h3>
@@ -198,6 +213,9 @@ $total = calculateTotal($basketItems);
                 </div>
                 
                 <button type="submit" class="checkout-btn">Confirm Order</button>
+                <div class="total">
+                    <strong>Total: €<?php echo htmlspecialchars($total, ENT_QUOTES, 'UTF-8'); ?></strong>
+                </div>
             </form>
         </div>
     </div>

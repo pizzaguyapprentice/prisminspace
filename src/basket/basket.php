@@ -62,7 +62,7 @@ $total = calculateTotal($basketItems);
             <div class="products-grid">
                 <?php foreach ($products as $product): ?>
                     <div class="product-card">
-                        <img src="<?= htmlspecialchars($product['productimage'] ?: '../img/placeholderlogo.svg') ?>" 
+                        <img src="../products/productimages/<?= htmlspecialchars($product['productimage'] ?: '../img/placeholderlogo.svg') ?>"
                              alt="<?= htmlspecialchars($product['productname']) ?>">
                         <h3><?= htmlspecialchars($product['productname']) ?></h3>
                         <p class="price">€<?= htmlspecialchars($product['productprice']) ?></p>
@@ -87,7 +87,7 @@ $total = calculateTotal($basketItems);
                             <span><?= htmlspecialchars($item['productname']) ?></span>
                             <span>€<?= htmlspecialchars($item['productprice']) ?></span>
                         </div>
-                    <?php endforeach; ?>
+                    <?php endforeach; ?></div>
                     
                     <div class="total">
                         <strong>Total: €<?= htmlspecialchars($total) ?></strong>
