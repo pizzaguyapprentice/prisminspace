@@ -97,7 +97,7 @@
 				$profilepicture = 'usericon.svg';
 			}
 
-			$imgpath = "/userpage/userprofiles/" . htmlspecialchars($profilepicture);
+			$imgpath = "../userpage/userprofiles/" . htmlspecialchars($profilepicture);
 
 			if($login_username == "an") {
 				echo "<a href='../login/login.php'>

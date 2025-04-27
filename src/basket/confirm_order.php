@@ -48,6 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $postcode = $_POST['postcode'];
     $email = $_POST['email'];
 
+    $couponCode = isset($_POST['coupon']) ? trim($_POST['coupon']) : null;
+    $couponValid = false;
+
     $errors = [];
 
     if (empty($_POST["email"])) {
@@ -80,6 +83,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $basketItems = getBasketItems();
     $total = calculateTotal($basketItems);
+
+if (!empty($couponCode)) {
+    $stmt = $conn->prepare("SELECT * FROM coupons WHERE coupon_code = :coupon_code");
+    $stmt->bindParam(':coupon_code', $couponCode, PDO::PARAM_STR);
+    $stmt->execute();
+    $coupon = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($coupon) {
+        $couponValid = true;
+        $discount = $total * 0.20;
+        $total -= $discount;
+    } else {
+        
+    }
+}
     
     if (empty($basketItems)) {
         die("Your basket is empty.");
@@ -142,6 +160,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $receipt .= "</div>";
         $receipt .= "<div class='receipt-total'>";
+        if ($couponValid) {
+            $receipt .= "<p>Coupon Applied: -20%</p>";
+        }
         $receipt .= "<strong>Total: €$total</strong>";
         $receipt .= "</div>";
         $receipt .= "</div>";
@@ -210,6 +231,10 @@ $total = calculateTotal($basketItems);
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="coupon">Coupon Code:</label>
+                    <input type="text" id="coupon" name="coupon" placeholder="Enter coupon code">
                 </div>
                 
                 <button type="submit" class="checkout-btn">Confirm Order</button>
