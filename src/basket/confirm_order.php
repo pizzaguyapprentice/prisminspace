@@ -95,7 +95,7 @@ if (!empty($couponCode)) {
         $discount = $total * 0.20;
         $total -= $discount;
     } else {
-        
+
     }
 }
     

@@ -32,7 +32,7 @@
 			else{
 				$user = new User($_POST['register_firstname'], $_POST['register_username'], $_POST['register_password'], "N/A");
 				$user->add_user();
-				$user->login_user("../login/registered.php");
+				$user->login_user("../login/login.php");
 			}
 		}
 	?>
