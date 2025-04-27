@@ -70,7 +70,7 @@
     </div>
 </div>
 <?php
-
+$newin = false;
 
 if (isset($_SESSION['basket']) && in_array($row['productid'], $_SESSION['basket'])):
     if (isset($_POST['add_to_basket'])) {
