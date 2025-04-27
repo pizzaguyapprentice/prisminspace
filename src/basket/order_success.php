@@ -38,6 +38,7 @@ $receipt = $_SESSION['receipt'];
             </div>
         </div>
 
-        <?php include "../onload/footer.php"; ?>
+
     </body>
+    <?php include "../onload/footer.php"; ?>
 </html>
