@@ -56,25 +56,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         foreach ($basketItems as $item) {
 
-            $stmt = $conn->prepare("INSERT INTO orders (date, userid, productid, address, city, postcode) 
-                                    VALUES (:date, :userid, :productid, :address, :city, :postcode)");
-            $stmt->execute([
+            $stmt = $conn->prepare("INSERT INTO orders (date, userid, productid, address, city, postcode, email) 
+                                    VALUES (:date, :userid, :productid, :address, :city, :postcode, :email)");
+
+                $stmt->execute([
                 ':date' => $date,
                 ':userid' => $userID,
                 ':productid' => $item['productid'],
                 ':address' => $address,
                 ':city' => $city,
-                ':postcode' => $postcode
+                ':postcode' => $postcode,
+                    ':email' => $email
             ]);
             $orderId = $conn->lastInsertId();
 
-            $stmt = $conn->prepare("INSERT INTO receipts (userid, orderid, date, totalprice)
-                        VALUES (:userid, :orderid, :date, :totalprice)");
+            $stmt = $conn->prepare("INSERT INTO receipts (userid, orderid, date, totalprice, email)
+                        VALUES (:userid, :orderid, :date, :totalprice, :email)");
+
             $stmt->execute([
                 ':userid' => $userID,
                 ':orderid' => $orderId,
                 ':date' => $date,
-                ':totalprice' => $total
+                ':totalprice' => $total,
+                ':email' => $email
 
             ]);
         }
@@ -88,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $receipt .= "<p>$address</p>";
         $receipt .= "<p>$city</p>";
         $receipt .= "<p>$postcode</p>";
+        $receipt .= "<p>$email</p>";
         $receipt .= "</div>";
         $receipt .= "<div class='receipt-items'>";
 
@@ -161,6 +166,10 @@ $total = calculateTotal($basketItems);
                 <div class="form-group">
                     <label for="postcode">Post Code:</label>
                     <input type="text" id="postcode" name="postcode" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 
                 <button type="submit" class="checkout-btn">Confirm Order</button>
