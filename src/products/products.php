@@ -15,6 +15,7 @@
             include("../onload/navbar.php");
         ?>
         <?php
+        $newin = false;
             include("../basket/getbasket.php");
         ?>
 
