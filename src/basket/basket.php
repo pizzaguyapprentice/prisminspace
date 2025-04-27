@@ -94,6 +94,11 @@ $total = calculateTotal($basketItems);
                     </div>
                     
                     <a href="confirm_order.php" class="checkout-btn" style="display: block; text-align: center; text-decoration: none;">Proceed to Checkout</a>
+            <?php else: ?>
+                <div class="empty-basket-message" style="text-align: center; padding: 2rem;">
+                    <h2>There is nothing in your basket right now.</h2>
+                    <p>Please <a href="../products/products.php">continue shopping</a>!</p>
+
                 </div>
             <?php endif; ?>
           </div>

@@ -11,9 +11,9 @@ if (!isset($_SESSION['login_username'])) {
     exit();
 }
 function test_input($data) {
-    $data = trim($data);           // Remove unnecessary spaces
-    $data = stripslashes($data);   // Remove backslashes
-    $data = htmlspecialchars($data); // Convert special chars to HTML entities
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
     return $data;
 }
 
