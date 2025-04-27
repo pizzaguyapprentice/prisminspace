@@ -10,6 +10,12 @@ if (!isset($_SESSION['login_username'])) {
     header('Location: ../login/login.php');
     exit();
 }
+function test_input($data) {
+    $data = trim($data);           // Remove unnecessary spaces
+    $data = stripslashes($data);   // Remove backslashes
+    $data = htmlspecialchars($data); // Convert special chars to HTML entities
+    return $data;
+}
 
 $servername = "localhost";
 $username = "root";
@@ -40,6 +46,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $address = $_POST['address'];
     $city = $_POST['city'];
     $postcode = $_POST['postcode'];
+    $email = $_POST['email'];
+
+    $errors = [];
+
+    if (empty($_POST["email"])) {
+        $errors[] = "Email is required.";
+    } else {
+        $email = test_input($_POST["email"]);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "Invalid email format.";
+        }
+    }
+
+    if (!empty($errors)) {
+        foreach ($errors as $error) {
+            echo "<p style='color:red;'>$error</p>";
+        }
+        exit();
+    }
 
     $basketItems = getBasketItems();
     $total = calculateTotal($basketItems);
