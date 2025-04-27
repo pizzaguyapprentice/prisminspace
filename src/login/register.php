@@ -17,6 +17,12 @@
 			if(((strlen($_POST['register_username']) ?? 2) < 3)){
 				$message = "Username Must Be 3 Or More Characters";
 			}
+			else if(((strlen($_POST['register_username'])) > 30)){
+				$message = "Username Must Be Less Than 30 Characters";
+			}
+			else if(((strlen($_POST['register_password']) ?? 0) > 30)){
+				$message = "Password Must Be Less Than 30 Characters";
+			}
 			else if(User::does_user_exist($_POST['register_username'])){
 				$message = "A User With That Username Already Exists";
 			}
