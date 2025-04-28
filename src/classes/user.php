@@ -91,10 +91,8 @@
 
 				$stmt->execute();
 
-				$user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-				if($stmt->rowCount() == 0){
-					echo "User, ". $user['username'] . "has been deleted";
+				if($stmt->rowCount() == 1){
+					echo "User ". $this->username . " has been deleted";
 				}
 				else{
 					echo "User has not been found";

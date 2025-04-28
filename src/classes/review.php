@@ -64,10 +64,8 @@
 
 				$stmt->execute();
 
-				$review = $stmt->fetch(PDO::FETCH_ASSOC);
-
-				if($stmt->rowCount() == 0){
-					echo "Review, ". $review['reviewid'] . "has been deleted";
+				if($stmt->rowCount() == 1){
+					echo "Review ". $this->reviewid . " has been deleted";
 				}
 				else{
 					echo "Review has not been found";

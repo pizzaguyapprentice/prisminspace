@@ -76,10 +76,8 @@
 
 				$stmt->execute();
 
-				$receipt = $stmt->fetch(PDO::FETCH_ASSOC);
-
-				if($stmt->rowCount() == 0){
-					echo "Receipt, ". $receipt['receiptid'] . "has been deleted";
+				if($stmt->rowCount() == 1){
+					echo "Receipt ". $this->receiptid . " has been deleted";
 				}
 				else{
 					echo "Receipt has not been found";
