@@ -61,10 +61,8 @@
 
 				$stmt->execute();
 
-				$refund = $stmt->fetch(PDO::FETCH_ASSOC);
-
-				if($stmt->rowCount() == 0){
-					echo "Refund, ". $refund['refundid'] . "has been deleted";
+				if($stmt->rowCount() == 1){
+					echo "Refund ". $this->refundid . " has been deleted";
 				}
 				else{
 					echo "Refund has not been found";

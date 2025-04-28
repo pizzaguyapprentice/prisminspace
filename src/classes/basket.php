@@ -20,7 +20,7 @@
 
 		public function add_basket(){
 			try{
-				$stmt = ($this->connect())->prepare("INSERT INTO basket (basketid, userid, productid) VALUES (:basketid, :userid, :productid)");
+				$stmt = ($this->connect())->prepare("INSERT INTO baskets (basketid, userid, productid) VALUES (:basketid, :userid, :productid)");
 				$stmt->bindParam(':basketid', $this->basketid);
 				$stmt->bindParam(':userid', $this->userid);
 				$stmt->bindParam(':productid', $this->productid);
@@ -34,7 +34,7 @@
 
 		public function select_basket(){
 			try{
-				$stmt = ($this->connect())->prepare("SELECT * FROM basket WHERE basketid = :basketid");
+				$stmt = ($this->connect())->prepare("SELECT * FROM baskets WHERE basketid = :basketid");
 				$stmt->bindParam(':basketid', $this->basketid);
 
 				$stmt->execute();
@@ -53,15 +53,13 @@
 
 		public function delete_basket(){
 			try{
-				$stmt = ($this->connect())->prepare("DELETE FROM basket WHERE basketid = :basketid");				
+				$stmt = ($this->connect())->prepare("DELETE FROM baskets WHERE basketid = :basketid");				
 				$stmt->bindParam(':basketid', $this->basketid);
 
 				$stmt->execute();
 
-				$basket = $stmt->fetch(PDO::FETCH_ASSOC);
-
-				if($stmt->rowCount() == 0){
-					echo "Basket, ". $basket['basketid'] . "has been deleted";
+				if($stmt->rowCount() == 1){
+					echo "Basket ". $this->basketid . " has been deleted";
 				}
 				else{
 					echo "Basket has not been found";
