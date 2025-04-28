@@ -55,19 +55,6 @@
 				$stmt->execute();
 
 				$order = $stmt->fetch(PDO::FETCH_ASSOC);
-                if ($order) {
-
-                    echo "<p>Order ID: " . htmlspecialchars($order['orderid']) . "</p>";
-                    echo "<p>Date: " . htmlspecialchars($order['date']) . "</p>";
-                    echo "<p>User ID: " . htmlspecialchars($order['userid']) . "</p>";
-                    echo "<p>Product ID: " . htmlspecialchars($order['productid']) . "</p>";
-                    echo "<p>Address: " . htmlspecialchars($order['address']) . "</p>";
-                    echo "<p>City: " . htmlspecialchars($order['city']) . "</p>";
-                    echo "<p>Postcode: " . htmlspecialchars($order['postcode']) . "</p>";
-                    echo "<p>Email: " . htmlspecialchars($order['email']) . "</p>";
-                } else {
-                    echo "<p>No order found.</p>";
-                }
 				return $order;
 			}
 			catch(PDOException $e){
@@ -87,7 +74,7 @@
 				$stmt->execute();
 
 				if($stmt->rowCount() == 1){
-					echo "Order, ". $order['orderid'] . "has been deleted";
+					echo "Order ". $this->orderid . " has been deleted";
 				}
 				else{
 					echo "Order has not been found";

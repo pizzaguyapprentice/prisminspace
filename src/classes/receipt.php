@@ -7,8 +7,9 @@
 		private $orderid;
 		private $date;
 		private $totalprice;
+		private $email;
 
-		public function __construct($receiptid, $userid, $orderid, $date, $totalprice){
+		public function __construct($receiptid, $userid, $orderid, $date, $totalprice, $email){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
@@ -20,16 +21,18 @@
 			$this->orderid = $orderid;
 			$this->date = $date;
 			$this->totalprice = $totalprice;
+			$this->email = $email;
 		}
 
 		public function add_receipt(){
 			try{
-				$stmt = ($this->connect())->prepare("INSERT INTO receipts (receiptid, userid, orderid, date, totalprice) VALUES (:receiptid, :userid, :orderid, :date, :totalprice)");
+				$stmt = ($this->connect())->prepare("INSERT INTO receipts (receiptid, userid, orderid, date, totalprice, email) VALUES (:receiptid, :userid, :orderid, :date, :totalprice, :email)");
 				$stmt->bindParam(':receiptid', $this->receiptid);
 				$stmt->bindParam(':userid', $this->userid);
 				$stmt->bindParam(':orderid', $this->orderid);
 				$stmt->bindParam(':date', $this->date);
 				$stmt->bindParam(':totalprice', $this->totalprice);
+				$stmt->bindParam(':email', $this->email);
 
 				$stmt->execute();
 			}
@@ -46,17 +49,6 @@
 				$stmt->execute();
 
 				$receipt = $stmt->fetch(PDO::FETCH_ASSOC);
-                if ($receipt) {
-                    // Echo the data properly
-                    echo "<p>Receipt ID: " . htmlspecialchars($receipt['receiptid']) . "</p>";
-                    echo "<p>User ID: " . htmlspecialchars($receipt['userid']) . "</p>";
-                    echo "<p>Order ID: " . htmlspecialchars($receipt['orderid']) . "</p>";
-                    echo "<p>Date: " . htmlspecialchars($receipt['date']) . "</p>";
-                    echo "<p>Total Price: €" . htmlspecialchars($receipt['totalprice']) . "</p>";
-                    echo "<p>Email: " . htmlspecialchars($receipt['email']) . "</p>";
-                } else {
-                    echo "Receipt not found.";
-                }
 				return $receipt;
 
 			}

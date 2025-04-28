@@ -8,6 +8,9 @@ echo "Running Product Test...\n";
 $product = new Product();
 $products = $product->select_all_products();
 
+echo "<p>Row count is ";
+echo $products->rowCount();
+echo "</p>";
 
 
 if ($products->rowCount() > 0) {

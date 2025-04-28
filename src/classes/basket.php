@@ -40,14 +40,6 @@
 				$stmt->execute();
 
 				$baskets = $stmt->fetch(PDO::FETCH_ASSOC);
-                if ($baskets) {
-
-                    echo "<p>Basket ID: " . htmlspecialchars($baskets['basketid']) . "</p>";
-                    echo "<p>User ID: " . htmlspecialchars($baskets['userid']) . "</p>";
-                    echo "<p>Product ID: " . htmlspecialchars($baskets['productid']) . "</p>";
-                } else {
-                    echo "<p>No basket found.</p>";
-                }
 				return $baskets;
 			}
 			catch(PDOException $e){
@@ -67,7 +59,7 @@
 				$stmt->execute();
 
 				if($stmt->rowCount() == 1){
-					echo "Basket, ". $baskets['basketid'] . "has been deleted";
+					echo "Basket ". $this->basketid . " has been deleted";
 				}
 				else{
 					echo "Basket has not been found";
