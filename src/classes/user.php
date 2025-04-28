@@ -15,19 +15,27 @@
 		}
 
 		public function add_user(){
-			try{
-				$stmt = ($this->connect())->prepare("INSERT INTO users (firstname, username, password, profilepicture) VALUES (:firstname, :username, :password, :profilepicture)");
-				$stmt->bindParam(':firstname', $this->firstname);
-				$stmt->bindParam(':username', $this->username);
-				$stmt->bindParam(':password', $this->password);
-				$stmt->bindParam(':profilepicture', $this->profilepicture);
+            try {
+                $stmt = ($this->connect())->prepare("INSERT INTO users (firstname, username, password, profilepicture) VALUES (:firstname, :username, :password, :profilepicture)");
+                $stmt->bindParam(':firstname', $this->firstname);
+                $stmt->bindParam(':username', $this->username);
+                $stmt->bindParam(':password', $this->password);
+                $stmt->bindParam(':profilepicture', $this->profilepicture);
 
-				$stmt->execute();
-			}
-			catch(PDOException $e){
-				echo "Error: " . $e->getMessage();
-			}
-		}
+                $stmt->execute();
+
+                if ($stmt->rowCount() > 0) {
+
+                    echo "<p>User successfully added!</p>";
+                    echo "<p>Firstname: " . htmlspecialchars($this->firstname) . "</p>";
+                    echo "<p>Username: " . htmlspecialchars($this->username) . "</p>";
+                } else {
+                    echo "<p>Failed to add user.</p>";
+                }
+            } catch(PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
 
 		private function select_user(){
 			try{
@@ -38,7 +46,8 @@
 				$stmt->execute();
 
 				$user = $stmt->fetch();
-				return $user;
+
+                return $user;
 			}
 			catch(PDOException $e){
 				echo "Connection failed: " . $e->getMessage();

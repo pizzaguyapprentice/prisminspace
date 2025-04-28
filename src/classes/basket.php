@@ -40,6 +40,14 @@
 				$stmt->execute();
 
 				$baskets = $stmt->fetch(PDO::FETCH_ASSOC);
+                if ($baskets) {
+
+                    echo "<p>Basket ID: " . htmlspecialchars($baskets['basketid']) . "</p>";
+                    echo "<p>User ID: " . htmlspecialchars($baskets['userid']) . "</p>";
+                    echo "<p>Product ID: " . htmlspecialchars($baskets['productid']) . "</p>";
+                } else {
+                    echo "<p>No basket found.</p>";
+                }
 				return $baskets;
 			}
 			catch(PDOException $e){

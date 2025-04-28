@@ -37,7 +37,7 @@
 				$stmt->execute();
 
 				$stmt->setFetchMode(PDO::FETCH_ASSOC);
-                echo "Row count is\n";
+                echo "\n Row count is\n";
                 echo $stmt->rowCount();
 				return $stmt;
 			}
