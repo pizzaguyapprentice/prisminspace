@@ -9,8 +9,9 @@
 		private $address;
 		private $city;
 		private $postcode;
+        private $email;
 
-		public function __construct($orderid, $date, $userid, $productid, $address, $city, $postcode){
+		public function __construct($orderid, $date, $userid, $productid, $address, $city, $postcode, $email){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
@@ -24,15 +25,21 @@
 			$this->address = $address;
 			$this->city = $city;
 			$this->postcode = $postcode;
+            $this->email = $email;
 		}
 
 		public function add_order(){
 			try{
-				$stmt = ($this->connect())->prepare("INSERT INTO orders (orderid, date, userid, productid, address, city, postcode) VALUES (:orderid, :date, :userid, :productid, :address, :city, :postcode)");
+				$stmt = ($this->connect())->prepare("INSERT INTO orders (orderid, date, userid, productid, address, city, postcode, email) VALUES (:orderid, :date, :userid, :productid, :address, :city, :postcode, :email)");
 				$stmt->bindParam(':orderid', $this->orderid);
 				$stmt->bindParam(':date', $this->date);
 				$stmt->bindParam(':userid', $this->userid);
 				$stmt->bindParam(':productid', $this->productid);
+                $stmt->bindParam(':email', $this->email);
+                $stmt->bindParam(':address', $this->address);
+                $stmt->bindParam(':city', $this->city);
+                $stmt->bindParam(':postcode', $this->postcode);
+
 
 				$stmt->execute();
 			}

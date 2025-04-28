@@ -11,8 +11,8 @@
 		private $productsize;
 		private $productcategory;
 		
-		/*
-		function __construct($productname, $productprice, $productamount, $productimage,$productdescription,$productsize,$productcategory){
+
+		/*function __construct($productname, $productprice, $productamount, $productimage,$productdescription,$productsize,$productcategory){
 			$db = new Credentials();
 			$this->db_address = $db->get_db_address();
 			$this->db_username = $db->get_db_username();
@@ -27,14 +27,8 @@
 			$this->productsize = $productsize;
 			$this->productcategory = $productcategory;
 		}
+*/
 
-		/*public function __construct(){
-			$db = new Credentials();
-			$this->db_address = $db->get_db_address();
-			$this->db_username = $db->get_db_username();
-			$this->db_password = $db->get_db_password();
-			$this->db_name = $db->get_db_name();
-		}*/
 
 		public function select_all_products(){
 			try{
@@ -43,6 +37,8 @@
 				$stmt->execute();
 
 				$stmt->setFetchMode(PDO::FETCH_ASSOC);
+                echo "Row count is\n";
+                echo $stmt->rowCount();
 				return $stmt;
 			}
 			catch(PDOException $e){

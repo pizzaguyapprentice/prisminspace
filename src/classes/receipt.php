@@ -46,7 +46,19 @@
 				$stmt->execute();
 
 				$receipt = $stmt->fetch(PDO::FETCH_ASSOC);
+                if ($receipt) {
+                    // Echo the data properly
+                    echo "<p>Receipt ID: " . htmlspecialchars($receipt['receiptid']) . "</p>";
+                    echo "<p>User ID: " . htmlspecialchars($receipt['userid']) . "</p>";
+                    echo "<p>Order ID: " . htmlspecialchars($receipt['orderid']) . "</p>";
+                    echo "<p>Date: " . htmlspecialchars($receipt['date']) . "</p>";
+                    echo "<p>Total Price: €" . htmlspecialchars($receipt['totalprice']) . "</p>";
+                    echo "<p>Email: " . htmlspecialchars($receipt['email']) . "</p>";
+                } else {
+                    echo "Receipt not found.";
+                }
 				return $receipt;
+
 			}
 			catch(PDOException $e){
 				echo "Connection failed: " . $e->getMessage();

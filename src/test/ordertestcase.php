@@ -5,7 +5,7 @@ require_once '../classes/credentials.php';
 
 echo "Running Order Test...\n";
 
-$order = new Order(9999, date('Y-m-d'), 1, 1, "Test Address", "Test City", "T123");
+$order = new Order(9999, date('Y-m-d'), 999, 1, "Test Address", "Test City", "T123" , "test@example.com");
 $order->add_order();
 
 $result = $order->select_order();
