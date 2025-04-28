@@ -60,7 +60,7 @@
 
 				$baskets = $stmt->fetch(PDO::FETCH_ASSOC);
 
-				if($stmt->rowCount() == 0){
+				if($stmt->rowCount() == 1){
 					echo "Basket, ". $baskets['basketid'] . "has been deleted";
 				}
 				else{

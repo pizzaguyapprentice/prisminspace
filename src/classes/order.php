@@ -9,7 +9,7 @@
 		private $address;
 		private $city;
 		private $postcode;
-        private $email;
+		private $email;
 
 		public function __construct($orderid, $date, $userid, $productid, $address, $city, $postcode, $email){
 			$db = new Credentials();
@@ -25,7 +25,7 @@
 			$this->address = $address;
 			$this->city = $city;
 			$this->postcode = $postcode;
-            $this->email = $email;
+			$this->email = $email;
 		}
 
 		public function add_order(){
@@ -35,11 +35,10 @@
 				$stmt->bindParam(':date', $this->date);
 				$stmt->bindParam(':userid', $this->userid);
 				$stmt->bindParam(':productid', $this->productid);
-                $stmt->bindParam(':email', $this->email);
-                $stmt->bindParam(':address', $this->address);
-                $stmt->bindParam(':city', $this->city);
-                $stmt->bindParam(':postcode', $this->postcode);
-
+				$stmt->bindParam(':address', $this->address);
+				$stmt->bindParam(':city', $this->city);
+				$stmt->bindParam(':postcode', $this->postcode);
+				$stmt->bindParam(':email', $this->email);
 
 				$stmt->execute();
 			}
@@ -76,7 +75,7 @@
 
 				$order = $stmt->fetch(PDO::FETCH_ASSOC);
 
-				if($stmt->rowCount() == 0){
+				if($stmt->rowCount() == 1){
 					echo "Order, ". $order['orderid'] . "has been deleted";
 				}
 				else{
