@@ -73,8 +73,6 @@
 
 				$stmt->execute();
 
-				$order = $stmt->fetch(PDO::FETCH_ASSOC);
-
 				if($stmt->rowCount() == 1){
 					echo "Order, ". $order['orderid'] . "has been deleted";
 				}
