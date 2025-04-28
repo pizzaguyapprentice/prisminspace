@@ -9,6 +9,7 @@ $product = new Product();
 $products = $product->select_all_products();
 
 
+
 if ($products->rowCount() > 0) {
     echo" Product Fetch Test Passed.\n";
 } else {
