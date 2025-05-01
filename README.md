@@ -1,72 +1,42 @@
-== MARKING SCHEME ==
-
-Structure
-	MVC Using A Front Controller
-	securing DB Credentials
-	DB Connection
-	Seperation Of SQL Queries.
-	Use Of Web Page Templates (Header And Footer)
-
-CRUD
-	Example Of ALL CRUD Functions With PDO (Create, Read, Update, Delete) Connection And Seperation Of SQL Queries
-	Strong Attempt At Shopping Cart Functionality
-
-Output And Formating
-	Appropriate Web Pages And Templates To Input And/Or Display Data (Use Of Tables, Css Iteration, Arrays, Etc.)
-
-Form Validation
-	All User Input Correctly Formatted And Sanitised At The Client & Server Side
-
-Data Storage
-	Use Of DB For ALL Storage, NO JSON
-
-Login Logic
-	Authenticate User Login Data Against Data In A DB
-
-Sessions
-	Use Of Sessions For Login And Sessions Destroy At End Of A Session
-
-Design And Apearance
-	User Can Access More Pages If Logged In.
-	Good Use Of Authentication
-
-Code Quality And Correctness
-	Good Use Of PHP Classes And Functions (Create Your Own Too)
-
-Version Control And Testing
-	Proof Of Version Control And Testing
-
-== WHAT WE NEED TO ADD == 
-
-Add User Profile Page
-UNIQUE SELLING POINT
-
-Authenticate User Login Data Against Data In A DB
-Use Of Sessions For Login And Sessions Destroy At End Of A Session
-User Can Access More Pages If Logged In.
-All User Input Correctly Formatted And Sanitised At The Client & Server Side
-Appropriate Web Pages And Templates To Input And/Or Display Data
-Strong Attempt At Shopping Cart Functionality
-Securing DB Credentials
-MVC Using A Front Controller
-Use Of Web Page Templates (Header And Footer)
+Contribution Statement
 
 
+All of the students involved in the final product have taken on an equal amount of work. There is no contention between the team involved.
 
-== Remember to: ==
+Mateusz Sewerynski
+Laurence Quinn
+Patryk Pasik
 
-1) Have both of your ssh-keys in your .ssh directory
-2) Run your Apache2 server (make sure the httpd.conf has the directory/document root put to wherever you have the /prisminspace/src folder)
-3) Put "localhost/index/index.php" into your browser
-4) Run the MYSQL service on Xampp
-5) Make sure to import the sql dump into localhost/phpmyadmin for prisminspacedb (import option on the menubar)
+Github-link: https://github.com/pizzaguyapprentice/prisminspace
 
-Try to work on one file only when making commits to prevent merge conflicts.
-Make incremental small commits once you have finished the implementation (even if its not perfect).
-Make sure to let your team members know which files you are editing.
 
-//git clone git@github.com:pizzaguyapprentice/prisminspace.git
-//git pull (if you havent already cloned)
-//git add (file)
-//git commit -m "(description)"
-//git push
+References
+
+
+Arrowdown svg:
+https://static.thenounproject.com/png/138554-200.png
+
+Shoppingcart svg:
+https://www.svgrepo.com/show/80543/shopping-cart-outline.svg
+
+User profile svg:
+https://gimgs2.nohat.cc/thumb/f/640/svg-user-icon-picture--freesvgorg44928.jpg
+
+Filter svg:
+https://www.svgrepo.com/show/53900/filter.svg
+
+Social media svgs:
+https://icons8.com/icons/set/social-media
+
+W3Schools: 
+https://www.w3schools.com/
+
+Background art - screen captures of Ralph Bakshi’s Wizards 1977 and The Lord of the Rings 1978
+
+Logo Icon - Edited screen capture of Ralph Bakshi’s The Lord of the Rings 1978
+
+Grained.js:
+https://github.com/sarathsaleem/grained
+
+PHP and MYSQL Web Development (5th Edition) by Laura Thomson and Luke Welling:
+https://www.amazon.co.uk/PHP-MySQL-Development-Developers-Library/dp/0321833899
